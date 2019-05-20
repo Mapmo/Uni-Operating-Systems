@@ -1,0 +1,1 @@
+This task was originally intended to just read a binary file and print it like xxd would do. However, it turned out that my OS was using Little Endianess and I was getting wrong results. Therefore, I found the solution to store the bytes as chars and after that to convert them to numbers and shift them respectively.
