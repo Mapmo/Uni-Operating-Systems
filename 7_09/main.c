@@ -18,7 +18,7 @@ int main (int argc, char* argv[])
 	if(pid > 0)
 	{
 		wait(&status);
-		if(WEXITSTATUS(status) == 0)
+		if(WIFEXITED(status) && WEXITSTATUS(status) == 0)
 		{
 			execl(argv[2], "second_process", (char*) NULL);
 			err(2, "execl err calling %s", argv[2]);
