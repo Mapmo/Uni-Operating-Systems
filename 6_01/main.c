@@ -34,12 +34,12 @@ int main (int numb, char* args[])
 			if (write(fd2, &buff, read_size) != read_size)
 			{
 				close(fd1);
-		                close(fd2);
+		        close(fd2);
 				err(4, "error occurred while writing\n");
 			}
 		}
 		close(fd1);
-                close(fd2);
+        close(fd2);
 		if(read_size < 0)
 		{
 			err(5, "error occurred while reading\n");

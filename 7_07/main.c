@@ -23,16 +23,22 @@ int main(int argc, char* argv[])
 	if(pid > 0)
 	{
 		wait(&status);
-		fd = open(argv[1], O_RDONLY);
-                if (fd == -1)
-                {
-			err(2, "Parent can't open file");
-                }
+
+        	if(WIFEXITED(status) == 0)
+        	{
+          		err(5, "Child didn't terminate correctly");
+        	}
 
 		if(WEXITSTATUS(status) == 0)
 		{
 			char buff[2];
-			
+
+			fd = open(argv[1], O_RDONLY);
+           	 	if (fd == -1)
+            		{
+			        err(2, "Parent can't open file");
+            		}		
+
 			while( (rsize = read(fd, buff, 2)) > 0)
 			{
 				if ((wsize = write(1, buff, rsize)) < 1)
