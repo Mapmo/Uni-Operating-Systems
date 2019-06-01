@@ -1,0 +1,482 @@
+root?x?0?0?root?/root?/bin/bash
+bin?x?1?1?bin?/bin?/sbin/nologin
+daemon?x?2?2?daemon?/sbin?/sbin/nologin
+adm?x?3?4?adm?/var/adm?/sbin/nologin
+lp?x?4?7?lp?/var/spool/lpd?/sbin/nologin
+sync?x?5?0?sync?/sbin?/bin/sync
+shutdown?x?6?0?shutdown?/sbin?/sbin/shutdown
+halt?x?7?0?halt?/sbin?/sbin/halt
+mail?x?8?12?mail?/var/spool/mail?/sbin/nologin
+uucp?x?10?14?uucp?/var/spool/uucp?/sbin/nologin
+operator?x?11?0?operator?/root?/sbin/nologin
+games?x?12?100?games?/usr/games?/sbin/nologin
+gopher?x?13?30?gopher?/var/gopher?/sbin/nologin
+ftp?x?14?50?FTP User?/var/ftp?/sbin/nologin
+ntp?x?38?38??/etc/ntp?/sbin/nologin
+apache?x?48?48?Apache?/var/www?/sbin/nologin
+vcsa?x?69?69?virtual console memory owner?/dev?/sbin/nologin
+postfix?x?89?89??/var/spool/postfix?/sbin/nologin
+sshd?x?74?74?Privilege-separated SSH?/var/empty/sshd?/sbin/nologin
+nobody?x?99?99?Nobody?/?/sbin/nologin
+saslauth?x?499?76?"Saslauthd user"?/var/empty/saslauth?/sbin/nologin
+sabina?x?500?500?Sabina Bocheva?/home/sabina?/bin/bash
+student?x?501?501??/home/student?/bin/bash
+svi?x?502?500?Svetozar Ilkov?/home/svi?/bin/bash
+tslavova?x?503?500?Tihomira Slavova?/home/tslavova?/bin/bash
+jbabukov?x?504?500?Jordan Babukov?/home/jbabukov?/bin/bash
+griza?x?505?500?Hristina Zasheva?/home/griza?/bin/bash
+moni?x?506?500?Monika Filipova?/home/moni?/bin/bash
+victoria?x?507?500?Victoria Hristova?/home/victoria?/bin/bash
+kiril?x?508?500?Kiril Varadinov?/home/kiril?/bin/bash
+vasilena?x?509?500?Vassilena Slaveva?/home/vasilena?/bin/bash
+yavor?x?510?500?Yavor Mihaylov?/home/yavor?/bin/bash
+tsanka?x?511?500?Tsanka Encheva?/home/tsanka?/bin/bash
+atanas?x?512?500?Atanas Dobrev?/home/atanas?/bin/bash
+kggeorgy?x?513?500?Krasimira Georgieva?/home/kggeorgy?/bin/bash
+velin?x?514?500?Alexander Velin?/home/velin?/bin/bash
+gergana?x?515?500?Gergana TOdorova?/home/gergana?/bin/bash
+svilen?x?516?500?Svilen Andonov?/home/svilen?/bin/bash
+danail?x?517?500?Danail Dimitrov?/home/danail?/bin/bash
+vesela?x?518?500?Vesela Bandova?/home/vesela?/bin/bash
+zvezdi?x?519?500?Zvezdalina Dimitrova?/home/zvezdi?/bin/bash
+aneta?x?520?500?Aneta Nedelcheva?/home/aneta?/bin/bash
+radoslav?x?521?500?Radoslav Georgiev?/home/radoslav?/bin/bash
+user?x?1000?99?Inactive user just to start UID from 1000?/home/user?/sbin/nologin
+human?x?522?500?Angel Angelov?/home/human?/bin/bash
+gdimov?x?523?500?Georgi Dimov?/home/gdimov?/bin/bash
+tony?x?524?500?Anton Petkov?/home/tony?/bin/bash
+lego?x?525?500?Cvetan Cvetanov?/home/lego?/bin/bash
+konov?x?526?500?Ventsi Konov?/home/konov?/bin/bash
+desi?x?527?500?Desislava Tsvetkova?/home/desi?/bin/bash
+shehov?x?528?500?Zdravko Shehov?/home/shehov?/bin/bash
+mollov?x?529?500?Ivan Mollov?/home/mollov?/bin/bash
+trenchev?x?530?500?Krasimir Trenchev?/home/trenchev?/bin/bash
+exam01?x?901?505?Exam user 01?/home/exam/exam01?/bin/bash
+exam02?x?902?505?Exam user 02?/home/exam/exam02?/bin/bash
+exam03?x?903?505?Exam user 03?/home/exam/exam03?/bin/bash
+exam04?x?904?505?Exam user 04?/home/exam/exam04?/bin/bash
+exam05?x?905?505?Exam user 05?/home/exam/exam05?/bin/bash
+exam06?x?906?505?Exam user 06?/home/exam/exam06?/bin/bash
+exam07?x?907?505?Exam user 07?/home/exam/exam07?/bin/bash
+exam08?x?908?505?Exam user 08?/home/exam/exam08?/bin/bash
+exam09?x?909?505?Exam user 09?/home/exam/exam09?/bin/bash
+exam10?x?910?505?Exam user 10?/home/exam/exam10?/bin/bash
+exam11?x?911?505?Exam user 11?/home/exam/exam11?/bin/bash
+exam12?x?912?505?Exam user 12?/home/exam/exam12?/bin/bash
+exam13?x?913?505?Exam user 13?/home/exam/exam13?/bin/bash
+exam14?x?914?505?Exam user 14?/home/exam/exam14?/bin/bash
+exam15?x?915?505?Exam user 15?/home/exam/exam15?/bin/bash
+exam16?x?916?505?Exam user 16?/home/exam/exam16?/bin/bash
+exam17?x?917?505?Exam user 17?/home/exam/exam17?/bin/bash
+exam18?x?918?505?Exam user 18?/home/exam/exam18?/bin/bash
+exam19?x?919?505?Exam user 19?/home/exam/exam19?/bin/bash
+exam20?x?920?505?Exam user 20?/home/exam/exam20?/bin/bash
+exam21?x?921?505?Exam user 21?/home/exam/exam21?/bin/bash
+exam22?x?922?505?Exam user 22?/home/exam/exam22?/bin/bash
+exam23?x?923?505?Exam user 23?/home/exam/exam23?/bin/bash
+exam24?x?924?505?Exam user 24?/home/exam/exam24?/bin/bash
+exam25?x?925?505?Exam user 25?/home/exam/exam25?/bin/bash
+exam26?x?926?505?Exam user 26?/home/exam/exam26?/bin/bash
+exam27?x?927?505?Exam user 27?/home/exam/exam27?/bin/bash
+exam28?x?928?505?Exam user 28?/home/exam/exam28?/bin/bash
+exam29?x?929?505?Exam user 29?/home/exam/exam29?/bin/bash
+exam30?x?930?505?Exam user 30?/home/exam/exam30?/bin/bash
+exam31?x?931?505?Exam user 31?/home/exam/exam31?/bin/bash
+exam32?x?932?505?Exam user 32?/home/exam/exam32?/bin/bash
+exam33?x?933?505?Exam user 33?/home/exam/exam33?/bin/bash
+exam34?x?934?505?Exam user 34?/home/exam/exam34?/bin/bash
+exam35?x?935?505?Exam user 35?/home/exam/exam35?/bin/bash
+exam36?x?936?505?Exam user 36?/home/exam/exam36?/bin/bash
+exam37?x?937?505?Exam user 37?/home/exam/exam37?/bin/bash
+exam38?x?938?505?Exam user 38?/home/exam/exam38?/bin/bash
+exam39?x?939?505?Exam user 39?/home/exam/exam39?/bin/bash
+exam40?x?940?505?Exam user 40?/home/exam/exam40?/bin/bash
+exam41?x?941?505?Exam user 41?/home/exam/exam41?/bin/bash
+exam42?x?942?505?Exam user 42?/home/exam/exam42?/bin/bash
+exam43?x?943?505?Exam user 43?/home/exam/exam43?/bin/bash
+exam44?x?944?505?Exam user 44?/home/exam/exam44?/bin/bash
+exam45?x?945?505?Exam user 45?/home/exam/exam45?/bin/bash
+exam46?x?946?505?Exam user 46?/home/exam/exam46?/bin/bash
+exam47?x?947?505?Exam user 47?/home/exam/exam47?/bin/bash
+exam48?x?948?505?Exam user 48?/home/exam/exam48?/bin/bash
+exam49?x?949?505?Exam user 49?/home/exam/exam49?/bin/bash
+exam50?x?950?505?Exam user 50?/home/exam/exam50?/bin/bash
+exam51?x?951?505?Exam user 51?/home/exam/exam51?/bin/bash
+exam52?x?952?505?Exam user 52?/home/exam/exam52?/bin/bash
+exam53?x?953?505?Exam user 53?/home/exam/exam53?/bin/bash
+exam54?x?954?505?Exam user 54?/home/exam/exam54?/bin/bash
+exam55?x?955?505?Exam user 55?/home/exam/exam55?/bin/bash
+exam56?x?956?505?Exam user 56?/home/exam/exam56?/bin/bash
+exam57?x?957?505?Exam user 57?/home/exam/exam57?/bin/bash
+exam58?x?958?505?Exam user 58?/home/exam/exam58?/bin/bash
+exam59?x?959?505?Exam user 59?/home/exam/exam59?/bin/bash
+exam60?x?960?505?Exam user 60?/home/exam/exam60?/bin/bash
+exam61?x?961?505?Exam user 61?/home/exam/exam61?/bin/bash
+exam62?x?962?505?Exam user 62?/home/exam/exam62?/bin/bash
+exam63?x?963?505?Exam user 63?/home/exam/exam63?/bin/bash
+exam64?x?964?505?Exam user 64?/home/exam/exam64?/bin/bash
+exam65?x?965?505?Exam user 65?/home/exam/exam65?/bin/bash
+exam66?x?966?505?Exam user 66?/home/exam/exam66?/bin/bash
+exam67?x?967?505?Exam user 67?/home/exam/exam67?/bin/bash
+exam68?x?968?505?Exam user 68?/home/exam/exam68?/bin/bash
+exam69?x?969?505?Exam user 69?/home/exam/exam69?/bin/bash
+exam70?x?970?505?Exam user 70?/home/exam/exam70?/bin/bash
+exam71?x?971?505?Exam user 71?/home/exam/exam71?/bin/bash
+exam72?x?972?505?Exam user 72?/home/exam/exam72?/bin/bash
+exam73?x?973?505?Exam user 73?/home/exam/exam73?/bin/bash
+exam74?x?974?505?Exam user 74?/home/exam/exam74?/bin/bash
+exam75?x?975?505?Exam user 75?/home/exam/exam75?/bin/bash
+exam76?x?976?505?Exam user 76?/home/exam/exam76?/bin/bash
+exam77?x?977?505?Exam user 77?/home/exam/exam77?/bin/bash
+exam78?x?978?505?Exam user 78?/home/exam/exam78?/bin/bash
+exam79?x?979?505?Exam user 79?/home/exam/exam79?/bin/bash
+exam80?x?980?505?Exam user 80?/home/exam/exam80?/bin/bash
+exam81?x?981?505?Exam user 81?/home/exam/exam81?/bin/bash
+exam82?x?982?505?Exam user 82?/home/exam/exam82?/bin/bash
+exam83?x?983?505?Exam user 83?/home/exam/exam83?/bin/bash
+exam84?x?984?505?Exam user 84?/home/exam/exam84?/bin/bash
+exam85?x?985?505?Exam user 85?/home/exam/exam85?/bin/bash
+exam86?x?986?505?Exam user 86?/home/exam/exam86?/bin/bash
+exam87?x?987?505?Exam user 87?/home/exam/exam87?/bin/bash
+exam88?x?988?505?Exam user 88?/home/exam/exam88?/bin/bash
+exam89?x?989?505?Exam user 89?/home/exam/exam89?/bin/bash
+exam90?x?990?505?Exam user 90?/home/exam/exam90?/bin/bash
+exam91?x?991?505?Exam user 91?/home/exam/exam91?/bin/bash
+exam92?x?992?505?Exam user 92?/home/exam/exam92?/bin/bash
+exam93?x?993?505?Exam user 93?/home/exam/exam93?/bin/bash
+exam94?x?994?505?Exam user 94?/home/exam/exam94?/bin/bash
+exam95?x?995?505?Exam user 95?/home/exam/exam95?/bin/bash
+exam96?x?996?505?Exam user 96?/home/exam/exam96?/bin/bash
+exam97?x?997?505?Exam user 97?/home/exam/exam97?/bin/bash
+exam98?x?998?505?Exam user 98?/home/exam/exam98?/bin/bash
+exam99?x?999?505?Exam user 99?/home/exam/exam99?/bin/bash
+boris?x?531?500?Boris Ivanov?/home/boris?/bin/bash
+kristina?x?532?500?Kristina Jelyazkova?/home/kristina?/bin/bash
+sylvia?x?533?500?Sylvia Yonkova?/home/sylvia?/bin/bash
+kaloyan?x?534?500?Kaloyan Manolov?/home/kaloyan?/bin/bash
+s61973?x?1001?504?Neno Petrakiev, SI, 3, 4?/home/SI/s61973?/bin/bash
+s62073?x?1002?504?Veronika Valentinova, SI, 3, 5?/home/SI/s62073?/bin/bash
+s61977?x?1003?504?Kiril Doychinov, SI, 3, 4?/home/SI/s61977?/bin/bash
+s62202?x?1004?504?Antonina Kyoseva, SI, 2, 4?/home/SI/s62202?/bin/bash
+s62143?x?1005?504?Toni Stoyanov, SI, 2, 4?/home/SI/s62143?/bin/bash
+s62220?x?1006?504?Vasil Papukchiev, SI, 2, 4?/home/SI/s62220?/bin/bash
+s62237?x?1007?504?Hristo Dimitrov?/home/SI/s62237?/bin/bash
+s62170?x?1008?504?Kazim Kazimov, SI, 2, 4?/home/SI/s62170?/bin/bash
+s62183?x?1009?504?Martin Pavlov, SI, 2, 4?/home/SI/s62183?/bin/bash
+s62185?x?1010?504?Dimitur Naidenov, SI, 2, 4?/home/SI/s62185?/bin/bash
+s62119?x?1011?504?Toni Stoyanov?/home/SI/s62119?/bin/bash
+s62173?x?1012?504?Andrei Andreev, SI, 2 ,4?/home/SI/s62173?/bin/bash
+s62137?x?1013?504?Ilknur Mustafa?/home/SI/s62137?/bin/bash
+s855300?x?1014?504?Bogdan Karabadzhak SI, 2, 4?/home/SI/s855300?/bin/bash
+s62193?x?1015?504?Desislava Krusteva, SI, 2, 1?/home/SI/s62193?/bin/bash
+s62126?x?1016?504?Victoria Georgieva?/home/SI/s62126?/bin/bash
+s62187?x?1017?504?Qvor Petkov, SI, 2, 4?/home/SI/s62187?/bin/bash
+s61990?x?1018?504?Stefan Lambov, SI, 3, 5?/home/SI/s61990?/bin/bash
+s62194?x?1019?504?Vladimir Seldarov, SI, 2, 4?/home/SI/s62194?/bin/bash
+s62139?x?1020?504?Asen Vladimirov, SI, 2, 4?/home/SI/s62139?/bin/bash
+s62184?x?1021?504?Kaloyan Yankov, SI, 2, 1?/home/SI/s62184?/bin/bash
+s62179?x?1022?504?Radina Dineva, SI, 2, 1?/home/SI/s62179?/bin/bash
+s62236?x?1023?504?Hristiana Hristova?/home/SI/s62236?/bin/bash
+s62155?x?1024?504?Ashkan Mustafa?/home/SI/s62155?/bin/bash
+s62210?x?1025?504?Deniza Topalova?/home/SI/s62210?/bin/bash
+s62142?x?1026?504?Nataliya Jancheva?/home/SI/s62142?/bin/bash
+s62213?x?1027?504?Katrin Stoimenova?/home/SI/s62213?/bin/bash
+s62225?x?1028?504?Teodora Ivanova?/home/SI/s62225?/bin/bash
+s62042?x?1029?504?Georgi Harakchiyski?/home/SI/s62042?/bin/bash
+s81687?x?1030?503?Anton Stoyanov, KN, 2k, 2gr?/home/KN/s81687?/bin/bash
+s62171?x?1031?504?Deivid Metanov?/home/SI/s62171?/bin/bash
+s62152?x?1032?504?Antoni Stoev?/home/SI/s62152?/bin/bash
+s62148?x?1033?504?Silviya Vasileva?/home/SI/s62148?/bin/bash
+s62156?x?1034?504?Oleg Alexandrov?/home/SI/s62156?/bin/bash
+s61994?x?1035?504?Tsvetin Panov?/home/SI/s61994?/bin/bash
+s61995?x?1036?504?Borislav Georgiev?/home/SI/s61995?/bin/bash
+s62149?x?1037?504?Nikolay Zaharov?/home/SI/s62149?/bin/bash
+s62226?x?1038?504?Nikola Svetoslavov?/home/SI/s62226?/bin/bash
+s62218?x?1039?504?Dimitar Seykov?/home/SI/s62218?/bin/bash
+s62147?x?1040?504?Petar Yanakiev?/home/SI/s62147?/bin/bash
+s62181?x?1041?504?Denislav Nedev?/home/SI/s62181?/bin/bash
+s81393?x?1042?503?Rumen Stoyanov, KN, 2k, 1gr?/home/KN/s81393?/bin/bash
+s81506?x?1043?503?Martin Hristov, KN, 2k, 1gr?/home/KN/s81506?/bin/bash
+s81509?x?1044?503?Andrey Prodromov, KN, 2k, 1gr?/home/KN/s81509?/bin/bash
+s81579?x?1045?503?Teodora Bahareva, KN, 2k, 1gr?/home/KN/s81579?/bin/bash
+s81621?x?1046?503?Nikolay Danailov, KN, 2k, 1gr?/home/KN/s81621?/bin/bash
+s81623?x?1047?503?Tervel Valkov, KN, 2k, 1gr?/home/KN/s81623?/bin/bash
+s81626?x?1048?503?Nikolay Asenov, KN, 2k, 1gr?/home/KN/s81626?/bin/bash
+s81637?x?1049?503?Borislava Borisova, KN, 2k, 1gr?/home/KN/s81637?/bin/bash
+s81643?x?1050?503?Nedelcho Pankovski, KN, 2k, 1gr?/home/KN/s81643?/bin/bash
+s81653?x?1051?503?Hristian Hristov, KN, 2k, 1gr?/home/KN/s81653?/bin/bash
+s81665?x?1052?503?Borislava Bagalijska, KN, 2k, 1gr?/home/KN/s81665?/bin/bash
+s81681?x?1053?503?Nikola Kralev, KN, 2k, 1gr?/home/KN/s81681?/bin/bash
+s81682?x?1054?503?Yavor Georgiev, KN, 2k, 1gr?/home/KN/s81682?/bin/bash
+s81695?x?1055?503?Yordan Georgiev, KN, 2k, 1gr?/home/KN/s81695?/bin/bash
+s81698?x?1056?503?Mihail Mihailov, KN, 2k, 1gr?/home/KN/s81698?/bin/bash
+s81699?x?1057?503?Boris Angelov, KN, 2k, 1gr?/home/KN/s81699?/bin/bash
+s81701?x?1058?503?Radomir Kolev, KN, 2k, 1gr?/home/KN/s81701?/bin/bash
+s81709?x?1059?503?Georgi Byrnev, KN, 2k, 1gr?/home/KN/s81709?/bin/bash
+s81714?x?1060?503?Ilian Draganov, KN, 2k, 1gr?/home/KN/s81714?/bin/bash
+s81716?x?1061?503?Plamen Nikolov, KN, 2k, 1gr?/home/KN/s81716?/bin/bash
+s81723?x?1062?503?Emilio Metushev, KN, 2k, 1gr?/home/KN/s81723?/bin/bash
+s81724?x?1063?503?Ralica Byrzijska, KN, 2k, 1gr?/home/KN/s81724?/bin/bash
+s81747?x?1064?503?Dian Mihailov, KN, 2k, 1gr?/home/KN/s81747?/bin/bash
+s81534?x?1065?503?Kaloyan Todorov, KN, 2k, 2gr?/home/KN/s81534?/bin/bash
+s81570?x?1066?503?Rosen Momchilov, KN, 2k, 2gr?/home/KN/s81570?/bin/bash
+s81575?x?1067?503?Staiko Dafov, KN, 2k, 2gr?/home/KN/s81575?/bin/bash
+s81578?x?1068?503?Viktor Lipchev, KN, 2k, 2gr?/home/KN/s81578?/bin/bash
+s81593?x?1069?503?Georgi Madzarov, KN, 2k, 2gr?/home/KN/s81593?/bin/bash
+s81597?x?1070?503?Nikolay Yaninski, KN, 2k, 2gr?/home/KN/s81597?/bin/bash
+s81612?x?1071?503?Petyr Petrov, KN, 2k, 2gr?/home/KN/s81612?/bin/bash
+s81620?x?1072?503?Mihail Stamenov, KN, 2k, 2gr?/home/KN/s81620?/bin/bash
+s81629?x?1073?503?Ivan Ivanov, KN, 2k, 2gr?/home/KN/s81629?/bin/bash
+s81636?x?1074?503?Yordan Mironski, KN, 2k, 2gr?/home/KN/s81636?/bin/bash
+s81647?x?1075?503?Petko Georgiev, KN, 2k, 2gr?/home/KN/s81647?/bin/bash
+s81657?x?1076?503?Stoil Radkov, KN, 2k, 2gr?/home/KN/s81657?/bin/bash
+s81669?x?1077?503?Atanas Ormanov, KN, 2k, 2gr?/home/KN/s81669?/bin/bash
+s81677?x?1078?503?Cvetan Enev, KN, 2k, 2gr?/home/KN/s81677?/bin/bash
+s81700?x?1079?503?Aleksandyr Stanev, KN,2k, 2gr?/home/KN/s81700?/bin/bash
+s81710?x?1080?503?Teodor Stoykov, KN, 2k, 2gr?/home/KN/s81710?/bin/bash
+s81712?x?1081?503?Kamen Vakavchiev, KN, 2k, 2gr?/home/KN/s81712?/bin/bash
+s81722?x?1082?503?Stefan Chlakov, KN, 2k, 2gr?/home/KN/s81722?/bin/bash
+s81730?x?1083?503?Martin Kirilov, KN,2k, 2gr?/home/KN/s81730?/bin/bash
+s81464?x?1084?503?Ivan Nushkov, KN, 2k, 3gr?/home/KN/s81464?/bin/bash
+s81473?x?1085?503?Radina Krusharska, KN, 2k, 3gr?/home/KN/s81473?/bin/bash
+s81497?x?1086?503?Velina Civneva, KN, 2k, 3gr?/home/KN/s81497?/bin/bash
+s81535?x?1087?503?Bozidar Dekov, KN, 2k, 3gr?/home/KN/s81535?/bin/bash
+s81582?x?1088?503?Cvetelin Georgiev, KN, 2k, 3gr?/home/KN/s81582?/bin/bash
+s81584?x?1089?503?Petyr Sinabov, KN, 2k, 3gr?/home/KN/s81584?/bin/bash
+s81587?x?1090?503?Aleksandra Simeonova, KN, 2k, 3gr?/home/KN/s81587?/bin/bash
+s81608?x?1091?503?Maria Zeliazkova, KN, 2k, 3gr?/home/KN/s81608?/bin/bash
+s81610?x?1092?503?Stoyan Kirov, KN, 2k, 3gr?/home/KN/s81610?/bin/bash
+s81627?x?1093?503?Teodora Peicheva, KN, 2k, 3gr?/home/KN/s81627?/bin/bash
+s81641?x?1094?503?Dimityr Markovich, KN, 2k, 3gr?/home/KN/s81641?/bin/bash
+s81661?x?1095?503?Karolina Koleva, KN, 2k, 3gr?/home/KN/s81661?/bin/bash
+s81664?x?1096?503?Kristina Boneva, KN, 2k, 3gr?/home/KN/s81664?/bin/bash
+s81668?x?1097?503?Atanas Cekov, KN, 2k, 3gr?/home/KN/s81668?/bin/bash
+s81676?x?1098?503?Bilyana Yordanova, KN, 2k, 3gr?/home/KN/s81676?/bin/bash
+s81680?x?1099?503?Dimityr Grigorov, KN, 2k, 3gr?/home/KN/s81680?/bin/bash
+s81684?x?1100?503?Petya Krasteva, KN, 2k, 3gr?/home/KN/s81684?/bin/bash
+s81704?x?1101?503?Cvetan Ivanov, KN, 2k, 3gr?/home/KN/s81704?/bin/bash
+s81717?x?1102?503?Nansi Uzunova,KN, 2k, 3gr?/home/KN/s81717?/bin/bash
+s81718?x?1103?503?Nikolay Vasilev, KN, 2k, 3gr?/home/KN/s81718?/bin/bash
+s81738?x?1104?503?Ralica Dobreva, KN, 2k, 3gr?/home/KN/s81738?/bin/bash
+s81740?x?1105?503?Dobromir Atanasov, KN, 2k, 3gr?/home/KN/s81740?/bin/bash
+s81748?x?1106?503?Zulieta Ignatova, KN, 2k, 3gr?/home/KN/s81748?/bin/bash
+s81752?x?1107?503?Dimityr Parapanov, KN, 2k, 3gr?/home/KN/s81752?/bin/bash
+s81396?x?1108?503?Cvetelina Ivanova, KN, 2k, 4gr?/home/KN/s81396?/bin/bash
+s81478?x?1109?503?Konstantin Terziev, KN, 2k, 4gr?/home/KN/s81478?/bin/bash
+s81517?x?1110?503?Evstati Pavlov, KN, 2k, 4gr?/home/KN/s81517?/bin/bash
+s81532?x?1111?503?Angel Angelov, KN, 2k, 4gr?/home/KN/s81532?/bin/bash
+s81565?x?1112?503?Nikolay Naydenov, KN, 2k, 4gr?/home/KN/s81565?/bin/bash
+s81580?x?1113?503?Ralica Dimitrova, KN, 2k, 4gr?/home/KN/s81580?/bin/bash
+s81590?x?1114?503?Enis Yanev, KN, 2k, 4hr?/home/KN/s81590?/bin/bash
+s81598?x?1115?503?Dimitrina Vasileva, KN, 2k, 4gr?/home/KN/s81598?/bin/bash
+s81600?x?1116?503?Konstantin Zurebanov, KN, 2k, 4gr?/home/KN/s81600?/bin/bash
+s81603?x?1117?503?Magdalena Lungolova, KN, 2k, 4gr?/home/KN/s81603?/bin/bash
+s81606?x?1118?503?Adrian Grigorov, KN, 2k, 4gr?/home/KN/s81606?/bin/bash
+s81607?x?1119?503?Anna Boracheva, KN, 2k, 4gr?/home/KN/s81607?/bin/bash
+s81618?x?1120?503?Aleksandyr Vitkov, KN, 2k, 4gr?/home/KN/s81618?/bin/bash
+s81625?x?1121?503?Teodor Todorov, KN, 2k, 4gr?/home/KN/s81625?/bin/bash
+s81635?x?1122?503?Galin Simeonov, KN, 2k, 4gr?/home/KN/s81635?/bin/bash
+s81651?x?1123?503?Gergana Stoichkova, KN, 2k, 4gr?/home/KN/s81651?/bin/bash
+s81662?x?1124?503?Antonina Uskova, KN, 2k, 4gr?/home/KN/s81662?/bin/bash
+s81670?x?1125?503?Vencislav Terziev, KN, 2k, 4gr?/home/KN/s81670?/bin/bash
+s81675?x?1126?503?Angelina Krastanova, KN, 2k, 4gr?/home/KN/s81675?/bin/bash
+s81685?x?1127?503?Daniel Goshev, KN, 2k, 4gr?/home/KN/s81685?/bin/bash
+s81696?x?1128?503?Martin Velikov, KN, 2k, 4gr?/home/KN/s81696?/bin/bash
+s81713?x?1129?503?Hristiana Panayotova, KN, 2k, 4gr?/home/KN/s81713?/bin/bash
+s81734?x?1130?503?Martin Liubenov, KN, 2k, 4gr?/home/KN/s81734?/bin/bash
+s81737?x?1131?503?Ralica Shindarova, KN, 2k, 4gr?/home/KN/s81737?/bin/bash
+s81743?x?1132?503?Yolita Nikolaeva, KN, 2k, 4gr?/home/KN/s81743?/bin/bash
+s81596?x?1133?503?Yoan Stoianov, KN, 2k, 5gr?/home/KN/s81596?/bin/bash
+s81599?x?1134?503?Rosina Georgieva, KN, 2k, 5gr?/home/KN/s81599?/bin/bash
+s81601?x?1135?503?Miroslav Furnadziev, KN, 2k 5gr?/home/KN/s81601?/bin/bash
+s81602?x?1136?503?Martin Ivanov, KN, 2k, 5gr?/home/KN/s81602?/bin/bash
+s81604?x?1137?503?Velina Karnalova, KN, 2k, 5gr?/home/KN/s81604?/bin/bash
+s81609?x?1138?503?Kaloyan Stoilov, KN, 2k, 5gr?/home/KN/s81609?/bin/bash
+s81619?x?1139?503?Simeon Gochev, KN, 2k, 5gr?/home/KN/s81619?/bin/bash
+s81630?x?1140?503?Teodor Kanev, KN, 2k, 5gr?/home/KN/s81630?/bin/bash
+s81631?x?1141?503?Ivan Arabadzijski, KN, 2k, 5gr?/home/KN/s81631?/bin/bash
+s81638?x?1142?503?Ivaylo Arnaudov, KN, 2k, 5gr?/home/KN/s81638?/bin/bash
+s81650?x?1143?503?Nedko Nedev, KN, 2k, 5gr?/home/KN/s81650?/bin/bash
+s81654?x?1144?503?Lyubomir Anin, KN, 2k, 5gr?/home/KN/s81654?/bin/bash
+s81659?x?1145?503?Maria Baleva, KN, 2k, 5gr?/home/KN/s81659?/bin/bash
+s81671?x?1146?503?Atanas Gruev, KN, 2k, 5gr?/home/KN/s81671?/bin/bash
+s81715?x?1147?503?Grigor Kolev, KN, 2k, 5gr?/home/KN/s81715?/bin/bash
+s81749?x?1148?503?Gergana Lapcheva, KN, 2k, 5gr?/home/KN/s81749?/bin/bash
+s81423?x?1149?503?Desislava Dimitrova, KN, 2k, 2gr?/home/KN/s81423?/bin/bash
+s81460?x?1150?503?Lyubomir Karpatov, KN, 2k, 2gr?/home/KN/s81460?/bin/bash
+s62144?x?1151?504?Lyuboslav Karev,SI,2,2?/home/SI/s62144?/bin/bash
+s62135?x?1152?504?Ivan Luchev,SI,2,2?/home/SI/s62135?/bin/bash
+s62206?x?1153?504?Viktoriya Bambaldokova,SI,2,2?/home/SI/s62206?/bin/bash
+s62190?x?1154?504?Boris Petrov,SI,2,2?/home/SI/s62190?/bin/bash
+s62223?x?1155?504?Antoan Petrov,SI,2,2?/home/SI/s62223?/bin/bash
+s62224?x?1156?504?Lyubomir Ruzhinski,SI,2,5?/home/SI/s62224?/bin/bash
+s62239?x?1157?504?Kristina Asenova,SI,2,3?/home/SI/s62239?/bin/bash
+s62231?x?1158?504?Viktor Mirev,SI,2,3?/home/SI/s62231?/bin/bash
+s62217?x?1159?504?Kristiyan Gergov,SI,2,4?/home/SI/s62217?/bin/bash
+s62215?x?1160?504?Emil Zhivkov,SI,2,3?/home/SI/s62215?/bin/bash
+s62191?x?1161?504?Sofiya Peneva,SI,2,6?/home/SI/s62191?/bin/bash
+s62099?x?1162?504?Dimo Apostolov,SI,3,5?/home/SI/s62099?/bin/bash
+s61958?x?1163?504?Martin Yotov,SI,4,4?/home/SI/s61958?/bin/bash
+s62201?x?1164?504?Bilyana Yordanova,SI,2,2?/home/SI/s62201?/bin/bash
+s62208?x?1165?504?Trayana Nedelcheva,SI,2,4?/home/SI/s62208?/bin/bash
+s62232?x?1166?504?Aleksandra Ivanova,SI,2,2?/home/SI/s62232?/bin/bash
+s62198?x?1167?504?Ivaylo Georgiev,SI,2,2?/home/SI/s62198?/bin/bash
+s62123?x?1168?504?Plamena Petkova,SI,2,2?/home/SI/s62123?/bin/bash
+s62129?x?1169?504?Ina Georgieva,SI,2,2?/home/SI/s62129?/bin/bash
+s62009?x?1170?504?Denitsa Dobreva,SI,3,3?/home/SI/s62009?/bin/bash
+s62140?x?1171?504?Zhechko Popov,SI,2,2?/home/SI/s62140?/bin/bash
+s855301?x?1172?504?Nataliya Stoyanova,SI,2,2?/home/SI/s855301?/bin/bash
+s62163?x?1173?504?Mariya Bayrakova,SI,2,2?/home/SI/s62163?/bin/bash
+s62238?x?1174?504?Virzhiniya Vylcheva,SI,2,2?/home/SI/s62238?/bin/bash
+s62040?x?1175?504?Konstantin Konstantinov,SI,3,0?/home/SI/s62040?/bin/bash
+s62018?x?1176?504?Martin Veselinov,SI,2,3?/home/SI/s62018?/bin/bash
+s62027?x?1177?504?Niya Raykova,SI,3,3?/home/SI/s62027?/bin/bash
+s62087?x?1178?504?Vasilena Kaludova,SI,3,1?/home/SI/s62087?/bin/bash
+s62088?x?1179?504?Radostina Georgieva,SI,3,4?/home/SI/s62088?/bin/bash
+s62113?x?1180?504?Momchil Ignatov,SI,2,2?/home/SI/s62113?/bin/bash
+s62117?x?1181?504?Gyokan Syuleymanov,SI,2,3?/home/SI/s62117?/bin/bash
+s62122?x?1182?504?Yumit Yayya,SI,2,1?/home/SI/s62122?/bin/bash
+s62124?x?1183?504?Rado Sergeev,SI,2,3?/home/SI/s62124?/bin/bash
+s62134?x?1184?504?Dimitar Lazarov,SI,2,3?/home/SI/s62134?/bin/bash
+s62138?x?1185?504?Maria Vardzhieva,SI,2,5?/home/SI/s62138?/bin/bash
+s62145?x?1186?504?Viktor Kostov,SI,2,3?/home/SI/s62145?/bin/bash
+s62157?x?1187?504?Vasil Nikolov,SI,2,3?/home/SI/s62157?/bin/bash
+s62159?x?1188?504?Ralitsa Dimitrova,SI,2,1?/home/SI/s62159?/bin/bash
+s62162?x?1189?504?Diana Georgieva,SI,2,3?/home/SI/s62162?/bin/bash
+s62175?x?1190?504?Martin Dachev,SI,2,1?/home/SI/s62175?/bin/bash
+s62180?x?1191?504?Eva Nikolova,SI,2,2?/home/SI/s62180?/bin/bash
+s62186?x?1192?504?Yoanna Evgenieva,SI,2,1?/home/SI/s62186?/bin/bash
+s62203?x?1193?504?Serafim Babulkov,SI,2,3?/home/SI/s62203?/bin/bash
+s62204?x?1194?504?Alexander Savchev,SI,2,3?/home/SI/s62204?/bin/bash
+s62240?x?1195?504?Stoyan Yanev,SI,2,6?/home/SI/s62240?/bin/bash
+s61872?x?1196?504?Petya Kyurkchiiska,SI,3,1?/home/SI/s61872?/bin/bash
+s61981?x?1197?504?Ivo Slavev,SI,3,3?/home/SI/s61981?/bin/bash
+s61992?x?1198?504?Elitsa Angelova,SI,3,5?/home/SI/s61992?/bin/bash
+s62008?x?1199?504?Ioanna Murdzheva,SI,3,4?/home/SI/s62008?/bin/bash
+s62077?x?1200?504?Hristian Lazarov,SI,2,6?/home/SI/s62077?/bin/bash
+s62114?x?1201?504?Daniel Penchev,SI,2,2?/home/SI/s62114?/bin/bash
+s62115?x?1202?504?Plamena Todorova,SI,2,6?/home/SI/s62115?/bin/bash
+s62116?x?1203?504?Kosyo Nikolov,SI,2,1?/home/SI/s62116?/bin/bash
+s62130?x?1204?504?Ivan Hristov,SI,2,1?/home/SI/s62130?/bin/bash
+s62131?x?1205?504?Ivaylo Atovski,SI,2,1?/home/SI/s62131?/bin/bash
+s62132?x?1206?504?Tanya Hristova,SI,2,3?/home/SI/s62132?/bin/bash
+s62141?x?1207?504?Ioanna Petkova,SI,2,6?/home/SI/s62141?/bin/bash
+s62146?x?1208?504?Rositsa Hristova,SI,2,6?/home/SI/s62146?/bin/bash
+s62150?x?1209?504?Rosen Popov,SI,2,1?/home/SI/s62150?/bin/bash
+s62151?x?1210?504?Viktor Hristov,SI,2,6?/home/SI/s62151?/bin/bash
+s62153?x?1211?504?Alexander Tsvetanov,SI,2,6?/home/SI/s62153?/bin/bash
+s62158?x?1212?504?Alexandra Prazova,SI,2,3?/home/SI/s62158?/bin/bash
+s62165?x?1213?504?Dimitar Velichkov,SI,2,6?/home/SI/s62165?/bin/bash
+s62167?x?1214?504?Ivan Chuchulski,SI,2,1?/home/SI/s62167?/bin/bash
+s62169?x?1215?504?Bistra Chilikova,SI,2,1?/home/SI/s62169?/bin/bash
+s62172?x?1216?504?Bozhidara Pachilova,SI,2,1?/home/SI/s62172?/bin/bash
+s62177?x?1217?504?Betina Borisova,SI,2,3?/home/SI/s62177?/bin/bash
+s62182?x?1218?504?Krasimira Konstantinova,SI,2,1?/home/SI/s62182?/bin/bash
+s62189?x?1219?504?Georgi Atanasov,SI,2,1?/home/SI/s62189?/bin/bash
+s62195?x?1220?504?Vanya Petrova,SI,2,6?/home/SI/s62195?/bin/bash
+s62196?x?1221?504?Elena Tuparova,SI,2,1?/home/SI/s62196?/bin/bash
+s62197?x?1222?504?Martin Iliev,SI,2,2?/home/SI/s62197?/bin/bash
+s62207?x?1223?504?Arina Ruseva,SI,2,1?/home/SI/s62207?/bin/bash
+s62209?x?1224?504?Radost Drangova,SI,2,3?/home/SI/s62209?/bin/bash
+s62212?x?1225?504?Vasil Juhov,SI,2,6?/home/SI/s62212?/bin/bash
+s62228?x?1226?504?Petya Petrova,SI,2,6?/home/SI/s62228?/bin/bash
+s62229?x?1227?504?Alexandra Iovkova,SI,2,6?/home/SI/s62229?/bin/bash
+s81416?x?1228?503?Ivaylo Cachev, KN, 2k, 1gr?/home/KN/s81416?/bin/bash
+s81484?x?1229?503?Hristina Hristova, KN, 3k, 7gr?/home/KN/s81484?/bin/bash
+s81403?x?1230?503?Slav Chomakov, KN, 2k, 1gr?/home/KN/s81403?/bin/bash
+s81660?x?1231?503?Rositca Todorova, KN, 2k, 8gr?/home/KN/s81660?/bin/bash
+s81615?x?1232?503?Ivan Vasilev, KN, 2k, 8gr?/home/KN/s81615?/bin/bash
+s81595?x?1233?503?Rumyana Sirakova, KN, 2k, 8gr?/home/KN/s81595?/bin/bash
+s62230?x?1234?504?Kristina Hristova, SI, 2, 4?/home/SI/s62230?/bin/bash
+s81475?x?1235?503?Teodor Wylchev, KN, 2k, 8gr?/home/KN/s81475?/bin/bash
+s81493?x?1236?503?Stanislav Stefanov, KN, 2k, 8gr?/home/KN/s81493?/bin/bash
+s81589?x?1237?503?Dimityr Nikolov, KN, 2k, 8gr?/home/KN/s81589?/bin/bash
+s81605?x?1238?503?Iliana Georgieva, KN, 2k, 8gr?/home/KN/s81605?/bin/bash
+s81611?x?1239?503?Georgi Vankov, KN, 2k, 8gr?/home/KN/s81611?/bin/bash
+s81640?x?1240?503?Margarita Velkushanova, KN, 2k, 8gr?/home/KN/s81640?/bin/bash
+s81642?x?1241?503?Svetlslav Petrov, KN, 2k, 8gr?/home/KN/s81642?/bin/bash
+s81646?x?1242?503?Hristiana Malinova, KN, 2k, 8gr?/home/KN/s81646?/bin/bash
+s81649?x?1243?503?Samuela Nenova, KN, 2k, 8gr?/home/KN/s81649?/bin/bash
+s81666?x?1244?503?Nikolina Dimitrova, KN, 2k, 8gr?/home/KN/s81666?/bin/bash
+s81674?x?1245?503?Kremena Malcheva, KN, 2k, 8gr?/home/KN/s81674?/bin/bash
+s81678?x?1246?503?Ivelina Valkanova, KN, 2k, 8gr?/home/KN/s81678?/bin/bash
+s81689?x?1247?503?Ekaterina Karamacheva, KN, 2k, 8gr?/home/KN/s81689?/bin/bash
+s81705?x?1248?503?Deia Goranov, KN, 2k, 8gr?/home/KN/s81705?/bin/bash
+s81739?x?1249?503?Zulieta Taseva, KN, 2k, 8gr?/home/KN/s81739?/bin/bash
+s81533?x?1250?503?Radoslav Radkov, KN, 2k, 7gr?/home/KN/s81533?/bin/bash
+s81656?x?1252?503?Asen Slivarov, KN, 2k, 7gr?/home/KN/s81656?/bin/bash
+s81613?x?1253?503?Dyk Hak Fan, KN, 2k, 7gr?/home/KN/s81613?/bin/bash
+s81616?x?1255?503?Nedko Nikolov, KN, 2k, 6gr?/home/KN/s81616?/bin/bash
+s62005?x?1256?504?Kostadin Borinarov, SI, 3, 3?/home/SI/s62005?/bin/bash
+s81553?x?1257?503?Hristo Velkov, KN, 3k, 7gr?/home/KN/s81553?/bin/bash
+s62118?x?1258?504?Mario Iliev, SI, 2, 5?/home/SI/s62118?/bin/bash
+s855284?x?1259?504?Deva Argir, SI, 2, 4?/home/SI/s855284?/bin/bash
+s62028?x?1260?504?Plamen Hristov, SI, 2, 3?/home/SI/s62028?/bin/bash
+s62050?x?1261?504?Ivan Ganchev, SI, 3, 4?/home/SI/s62050?/bin/bash
+s62120?x?1262?504?Aleksandar Stefanov, SI, 2, 2?/home/SI/s62120?/bin/bash
+s62211?x?1263?504?Velin Klisurov,SI,2,1?/home/SI/s62211?/bin/bash
+s62000?x?1264?504?Iliyan Georgiev,SI,3,1?/home/SI/s62000?/bin/bash
+s62002?x?1265?504?Rositsa Zgurova,SI,4,2?/home/SI/s62002?/bin/bash
+s62049?x?1266?504?Kristiyan Kosev,SI,3,3?/home/SI/s62049?/bin/bash
+s62062?x?1267?504?Yoana Karadzova,SI,3,3?/home/SI/s62062?/bin/bash
+s62081?x?1268?504?Viktoriya Tsvetanova,SI,3,4?/home/SI/s62081?/bin/bash
+s62082?x?1269?504?Bilyana Kostadinova,SI,3,1?/home/SI/s62082?/bin/bash
+s62097?x?1270?504?Kiril Milanov,SI,3,5?/home/SI/s62097?/bin/bash
+s62098?x?1271?504?Velizar Vrabchev,SI,3,1?/home/SI/s62098?/bin/bash
+s62101?x?1272?504?Georgi Georgiev,SI,3,5?/home/SI/s62101?/bin/bash
+s62108?x?1273?504?Sherif Kunch,SI,3,1?/home/SI/s62108?/bin/bash
+s62111?x?1274?504?Yulian Bizeranov,SI,3,3?/home/SI/s62111?/bin/bash
+s62121?x?1275?504?Daniel Dimitrov,SI,2,1?/home/SI/s62121?/bin/bash
+s62133?x?1276?504?Ivaylo Ivanov,SI,2,2?/home/SI/s62133?/bin/bash
+s62160?x?1277?504?Veniyana Tsolova,SI,2,3?/home/SI/s62160?/bin/bash
+s62199?x?1278?504?Nikola Petrov,SI,2,5?/home/SI/s62199?/bin/bash
+s62219?x?1279?504?Viliyan Ivanov,SI,2,6?/home/SI/s62219?/bin/bash
+s62234?x?1280?504?Viktoriya Dobreva,SI,2,3?/home/SI/s62234?/bin/bash
+s855264?x?1281?504?Toni Dupkarski,SI,4,2?/home/SI/s855264?/bin/bash
+s81555?x?1282?503?Elena Georgieva,KN,2,0?/home/KN/s81555?/bin/bash
+s81585?x?1283?503?Stela Marinova,KN,2,0?/home/KN/s81585?/bin/bash
+s81441?x?1284?503?Vesela Plamenova Borislavova , KN, k2, g7?/home/KN/s81441?/bin/bash
+s81644?x?1285?503?Viktor Rusev, KN, k2, g7?/home/KN/s81644?/bin/bash
+s81628?x?1286?503?Iliyan Yordanov Yordanov, KN, k2, g6?/home/KN/s81628?/bin/bash
+s81490?x?1287?503?Yana Spasova, KN, k2, g6?/home/KN/s81490?/bin/bash
+s81632?x?1288?503?Kristiyan Georgiev, KN, k2, g6?/home/KN/s81632?/bin/bash
+s81572?x?1289?503?Anzhelina Mileva, KN, k2, g6?/home/KN/s81572?/bin/bash
+s81481?x?1290?503?Asen Dzhumaliev, KN, k2, g6?/home/KN/s81481?/bin/bash
+s81574?x?1291?503?Ivelin Dinev Dinev, KN, k2, g7?/home/KN/s81574?/bin/bash
+s81736?x?1292?503?Tsvetelina Peteva Kamenova, KN, k2, g7?/home/KN/s81736?/bin/bash
+s81410?x?1293?503?Михаил Живков Михайлов, KN, k2, g6?/home/KN/s81410?/bin/bash
+s81614?x?1294?503?Kristina Georgieva Georgieva, KN, k2, g7?/home/KN/s81614?/bin/bash
+s81455?x?1295?503?Simona Ivanova, KN, 3k, 1gr?/home/KN/s81455?/bin/bash
+s81009?x?1296?503?Aleksandyr Nadzarqn, KN, 2k, 1gr?/home/KN/s81009?/bin/bash
+s62020?x?1297?504?Vladimir Kralev, SI, 2, 5?/home/SI/s62020?/bin/bash
+s62110?x?1298?504?Nikola Chobanov, SI, 3, 5?/home/SI/s62110?/bin/bash
+s81721?x?1299?503?Kostadin Garov, KN, 2, 6?/home/KN/s81721?/bin/bash
+s62178?x?1300?504?Stefan Pelke, SI, 2, 3?/home/SI/s62178?/bin/bash
+s81256?x?1301?503?Bogomila Peneva, KN, 4, 1?/home/KN/s81256?/bin/bash
+s62136?x?1302?503?Alexander Ignatov, SI, 2, 2?/home/KN/s62136?/bin/bash
+s81679?x?1303?503?Ralitsa Mitova, KN, k2, g7?/home/KN/s81679?/bin/bash
+s81622?x?1304?503?Elian Petkov, KN, k2, g7?/home/KN/s81622?/bin/bash
+s81692?x?1305?503?Diana Petrusheva, KN, k2, g7?/home/KN/s81692?/bin/bash
+s81686?x?1306?503?Martin Todorov, KN, k2, g7?/home/KN/s81686?/bin/bash
+s81694?x?1307?503?Zahari Atanasov Tudzharov, KN, k2, g7?/home/KN/s81694?/bin/bash
+s81577?x?1308?503?Mihaela Gandeva, KN, k2, g7?/home/KN/s81577?/bin/bash
+s69999?x?1309?504?Kristina Asenova -not hacked, SI, 2, 3?/home/SI/s69999?/bin/bash
+s81476?x?1310?503?Denica Dimitrova, KN, 3k, 3gr?/home/KN/s81476?/bin/bash
+s81691?x?1311?503?Paolina Gadjulova, KN, k2, g6?/home/KN/s81691?/bin/bash
+s81750?x?1312?503?Николай Ивайлов Начев, KN, k2, g6?/home/KN/s81750?/bin/bash
+s81336?x?1313?503?Hyuliya Hamdi, KN, k2, g7?/home/KN/s81336?/bin/bash
+s81645?x?1314?503?Nikolay Karagyozov, KN, k2, g6?/home/KN/s81645?/bin/bash
+s62096?x?1315?504?Stefan Georgiev, SI, 3, 2?/home/SI/s62096?/bin/bash
+s62048?x?1316?504?Ivan Todorov?/home/SI/s62048?/bin/bash
+s44871?x?1317?502?Mila Gyoshkova, Inf, 3k, 1gr?/home/Inf/s44871?/bin/bash
+s61906?x?1318?504?Kremena Petkova, SI, 3, 4?/home/SI/s61906?/bin/bash
+s81658?x?1319?503?Irina Atanasova, KN, k2, g7?/home/KN/s81658?/bin/bash
+ss81644?x?1320?503?Viktor Rusev, KN, 2, 7?/home/KN/ss81644?/bin/bash
+s621111?x?1321?504?Yulian Bizeranov, SI, 3, 3?/home/SI/s621111?/bin/bash
+s62227?x?1322?504?Georgi Bikov, SI, 2, 6?/home/SI/s62227?/bin/bash
+s61815?x?1323?504?Elizabet Pavlova, SI, 4, 1?/home/SI/s61815?/bin/bash
+s61756?x?1324?504?Katrin Kartuleva, SI, 4, 1?/home/SI/s61756?/bin/bash
+s81400?x?1325?503?Bogomila Petrova, KN, 3k, 1gr?/home/KN/s81400?/bin/bash
+s81405?x?1326?503?Betina Hristova, KN, 3k, 1gr?/home/KN/s81405?/bin/bash
+s62009_?x?1327?504?Denitsa Dobreva, SI, 3, 3?/home/SI/s62009_?/bin/bash
+s62140_?x?1328?504?Zhechko Popov, SI, 2, 2?/home/SI/s62140_?/bin/bash
