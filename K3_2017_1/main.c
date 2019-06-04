@@ -50,7 +50,7 @@ int main(const int argc, const char* argv[])
 	off_t size1 = lseek(fd1, 0, SEEK_END);
 	off_t size2 = lseek(fd2, 0, SEEK_END);
 	
-	if(size1 == -1 || size2 == -1)
+	if(size1 == M1 || size2 == M1)
 	{
 		CloseAll(fd1, fd2, M1);
 		err(5, "Problem lseeking");
@@ -62,7 +62,7 @@ int main(const int argc, const char* argv[])
 		errx(4, "Different sizes");
 	}
 
-	if(lseek(fd1, 0, SEEK_SET) == -1 || lseek(fd2, 0, SEEK_SET) == -1)
+	if(lseek(fd1, 0, SEEK_SET) == M1 || lseek(fd2, 0, SEEK_SET) == M1)
         {
 		CloseAll(fd1, fd2, M1);
                 err(4, "problem going to beg");
@@ -107,7 +107,7 @@ int main(const int argc, const char* argv[])
 	}
 	CloseAll(fd1, fd2, patch);
 
-	if(rd1 == -1 || rd2 == -1)
+	if(rd1 == M1 || rd2 == M1)
 	{
 		err(8, "Problem while reading");
 	}
