@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 			err(5, "dup2 cut[1], 1");
 		}
 		execlp("cut", "cut", "-d:", "-f7", "/etc/passwd", (char*) NULL);
-		ClosePipe(cut[0], -1, -1);
+		ClosePipe(cut[1], -1, -1);
 		err(3, "cut failed");
 	}
 
