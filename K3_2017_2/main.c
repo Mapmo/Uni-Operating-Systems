@@ -45,6 +45,12 @@ int main(int argc, char* argv[])
 	}
 
 	pid = fork();
+	if(pid == -1)
+        {
+                ClosePipe(cut[0], cut[1], -1);
+                err(6, "fork failed");
+        }
+
 
 	if(pid == 0)
 	{
@@ -60,7 +66,6 @@ int main(int argc, char* argv[])
 	}
 
 	wait(&status);
-	//printf("here");
 	if(CheckStatus(status) == 0)
 	{
 		ClosePipe(cut[0], cut[1], -1);
@@ -76,6 +81,12 @@ int main(int argc, char* argv[])
 	}
 
 	pid = fork();
+	
+	if(pid == -1)
+	{
+		ClosePipe(sort1[0], sort1[1], cut[0]);
+		err(6, "fork failed");
+	}
 
 	if(pid == 0)
 	{
@@ -109,7 +120,14 @@ int main(int argc, char* argv[])
 	}
 
 	ClosePipe(cut[0], sort1[1], -1);
+
 	pid = fork();
+
+	if(pid == -1)
+        {
+                ClosePipe(sort1[0], uniq[1], uniq[0]);
+                err(6, "fork failed");
+        }
 
 	if(pid == 0)
 	{
