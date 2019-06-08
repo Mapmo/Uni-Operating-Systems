@@ -81,7 +81,7 @@ int main(const int argc, const char* argv[])
 	{
 		if(buff1 != buff2)
 		{
-			int16_t tmp = lseek(fd1, 0, SEEK_CUR) - 1;
+			int16_t tmp = lseek(fd1, 0, SEEK_CUR) - 1; //read moves the file descriptor 1 byte ahead and i want the location of the byte that i read so I substract 1
 			if(tmp == -1)
 			{
 				CloseAll(fd1, fd2, patch);
