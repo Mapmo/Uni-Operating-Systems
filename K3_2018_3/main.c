@@ -132,22 +132,14 @@ int main(const int argc, const char* argv[])
 				err(7, "read err");
 			}
 
-	//		printf("After i:%u j:%u minInd:%u minVal:%u cur:%u\n", i, j, minInd, minVal, cur);
+			printf("After i:%u j:%u minInd:%u minVal:%u cur:%u\n", i, j, minInd, minVal, cur);
 			
 			if(cur < minVal)
 			{
-			//	printf("After i:%u j:%u minVal:%u cur:%u\n", i, j, minVal, cur);
+				
+			// 	printf("After i:%u j:%u minVal:%u cur:%u\n", i, j, minVal, cur);
 				minInd = j;
-				if(lseek(fdInd, j, SEEK_SET) == -1)
-                		{
-                        		iClose(fdInd, iterator);
-                       	 		err(6, "Problem seeking");
-                		}
-				if(read(fdInd, &minVal, 4) == -1)
-               			{
-                        		iClose(fdInd, iterator);
-                        		err(7, "read err");
-                		}	
+				minVal = cur;	
 			}
 		}
 		
