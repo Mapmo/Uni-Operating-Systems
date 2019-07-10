@@ -2,17 +2,8 @@
 #include <err.h>
 #include <errno.h>
 #include <sys/types.h>
-#include <sys/wait.h>
-
 #include <stdio.h>
-char CheckStatus(const int status)
-{
-	if(WIFEXITED(status) == 0 || WEXITSTATUS(status) != 0)
-	{
-		return 0;
-	}
-	return 1;
-}
+
 
 void ClosePipe(const int fd1, const int fd2, const int fd3)
 {
@@ -36,7 +27,7 @@ int main(int argc, char* argv[])
 		errx(1, "Wrong amount of arguments in %s", argv[0]);
 	}
 
-	int cut[2], sort1[2], uniq[2], status;
+	int cut[2], sort1[2], uniq[2];
 	pid_t pid;
 
 	if(pipe(cut) == -1)
@@ -63,13 +54,6 @@ int main(int argc, char* argv[])
 		execlp("cut", "cut", "-d:", "-f7", "/etc/passwd", (char*) NULL);
 		ClosePipe(cut[1], -1, -1);
 		err(3, "cut failed");
-	}
-
-	wait(&status);
-	if(CheckStatus(status) == 0)
-	{
-		ClosePipe(cut[0], cut[1], -1);
-		err(4, "child cut failed");
 	}
 
 	close(cut[1]);
@@ -106,13 +90,6 @@ int main(int argc, char* argv[])
 		err(3, "sort1 failed");
 	}
 
-	wait(&status);
-	if(CheckStatus(status) == 0)
-	{
-		ClosePipe(cut[0], sort1[0], sort1[1]);
-		err(4, "Child sort 1 failed");
-	}
-
 	if(pipe(uniq) == -1)
 	{
 		ClosePipe(cut[0], sort1[0], sort1[1]);
@@ -145,13 +122,6 @@ int main(int argc, char* argv[])
 		execlp("uniq", "uniq", "-c", (char*) NULL);
 		ClosePipe(sort1[0], uniq[1], -1);
 		err(3, "uniq failed");
-	}
-
-	wait(&status);
-	if(CheckStatus(status) == 0)
-	{
-		ClosePipe(sort1[0], uniq[0], uniq[1]);
-		err(4, "Child uniq failed");
 	}
 
 	ClosePipe(sort1[0], uniq[1], -1);

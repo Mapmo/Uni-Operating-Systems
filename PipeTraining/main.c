@@ -3,7 +3,6 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <sys/wait.h>
 #include <stdio.h>
 
 void ClosePipe(const int fd1, const int fd2, const int fd3)
@@ -19,15 +18,6 @@ void ClosePipe(const int fd1, const int fd2, const int fd3)
 		}
 	}
 	errno = _errno;
-}
-
-char ValidateStatus(const int status)
-{
-	if(WIFEXITED(status) == 0 || WEXITSTATUS(status) != 0)
-	{
-		return 0;
-	}
-	return 1;
 }	
 
 int main(const int argc, const char* argv[])
@@ -37,7 +27,7 @@ int main(const int argc, const char* argv[])
 		errx(1, "wrong args in %s", argv[0]);
 	}
 
-	int status, tail[2], sed[2], sort[2];
+	int tail[2], sed[2], sort[2];
 	pid_t pid;
 
 	if(pipe(tail) == -1)
@@ -63,13 +53,6 @@ int main(const int argc, const char* argv[])
 		execlp("tail", "tail", "-n", "+2", "example", (char*) NULL);
 		ClosePipe(tail[1], -1, -1);
 		err(5, "tail fail");
-	}
-	
-	wait(&status);
-	if(ValidateStatus(status) == 0)
-	{
-		ClosePipe(tail[0], tail[1], -1);
-		err(5, "child tail failed");
 	}
 	
 	close(tail[1]);
@@ -101,12 +84,6 @@ int main(const int argc, const char* argv[])
                 err(5, "sed fail");
         }
 	
-	wait(&status);
-        if(ValidateStatus(status) == 0)
-        {
-                ClosePipe(tail[0], sed[1], sed[0]);
-                err(5, "child sed failed");
-        }
 	
 	close(tail[0]);
         close(sed[1]);
@@ -134,13 +111,6 @@ int main(const int argc, const char* argv[])
                 execlp("sort", "sort", (char*) NULL);
                 ClosePipe(sed[0], sort[1], -1);
                 err(5, "sort fail");
-        }
-
-        wait(&status);
-        if(ValidateStatus(status) == 0)
-        {
-                ClosePipe(sort[0], sort[1], sed[0]);
-                err(5, "child sort failed");
         }
 
 	close(sed[0]);
