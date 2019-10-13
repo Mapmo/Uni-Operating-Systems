@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if (( $# != 1))
+then
+	echo "1 arg only"
+else
+	ps -eo pid,cmd | grep ${1} | grep -o "^ *[[:digit:]]*" | head -n -1 | xargs kill -s SIGTERM
+fi

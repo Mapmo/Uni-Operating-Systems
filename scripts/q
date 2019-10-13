@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ps -eo pid,cmd | grep chrome | grep -o "^ *[[:digit:]]*" | head -n -1 |xargs kill -s SIGTERM
+
+sleep 0.2
+
+poweroff
