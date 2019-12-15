@@ -1,0 +1,6 @@
+#!/bin/bash
+
+#syncronizes own google drive
+
+rclone sync mapmoeu: mapmoeu -P
+
