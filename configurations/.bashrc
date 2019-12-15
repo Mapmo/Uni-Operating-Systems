@@ -33,6 +33,28 @@ alias лс=ls
 alias жим=vim
 alias цд=cd
 alias судо=sudo
+alias цлеар=clear
+alias я=q
+alias пвд=pwd
 alias reboot="sudo reboot"
+alias poweroff="sudo poweroff"
+
+function pwd
+{
+	echo
+	echo "Welcome to $(command pwd):"
+	echo
+	ls
+	echo
+}
+
+function cd
+{
+	echo
+	command cd $@
+	pwd
+}
+
+
 
 test -s ~/.alias && . ~/.alias || true
