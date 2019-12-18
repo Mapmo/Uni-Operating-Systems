@@ -12,7 +12,7 @@
 
 # Some applications read the EDITOR variable to determine your favourite text
 # editor. So uncomment the line below and enter the editor of your choice :-)
-#export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 #export EDITOR=/usr/bin/mcedit
 
 # For some news readers it makes sense to specify the NEWSSERVER variable here
@@ -38,6 +38,11 @@ alias я=q
 alias пвд=pwd
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
+#aliases for my keyboard lighting
+alias kon="xset led on"
+alias кон=kon
+alias kof="xset led off"
+alias коф=kof
 
 function pwd
 {
@@ -51,10 +56,18 @@ function pwd
 function cd
 {
 	echo
-	command cd $@
+	command cd "$*"
 	pwd
 }
 
+function q
+{
+	pgrep chrome | xargs kill -s SIGTERM #usually only my chrome is active when I try to poweroff
 
+	sleep 0.2
+
+	sudo poweroff
+
+}
 
 test -s ~/.alias && . ~/.alias || true
