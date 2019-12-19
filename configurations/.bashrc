@@ -38,6 +38,9 @@ alias я=q
 alias пвд=pwd
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
+alias ецхо=echo
+alias ман=man
+
 #aliases for my keyboard lighting
 alias kon="xset led on"
 alias кон=kon
@@ -71,4 +74,4 @@ function q
 }
 
 test -s ~/.alias && . ~/.alias || true
-export PS1="\e[1;33m\u\e[1;35m@\h:\e[1;32m\w>$ \e[m"
+export PS1="\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w>$ \[\e[m\]"
