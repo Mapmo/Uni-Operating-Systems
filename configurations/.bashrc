@@ -40,6 +40,7 @@ alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
 alias ецхо=echo
 alias ман=man
+alias ls="ls --color"
 
 #aliases for my keyboard lighting
 alias kon="xset led on"
@@ -52,7 +53,7 @@ function pwd
 	echo
 	echo "Welcome to $(command pwd):"
 	echo
-	ls
+	ls 
 	echo
 }
 
