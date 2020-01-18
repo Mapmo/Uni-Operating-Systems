@@ -40,6 +40,7 @@ d)  Press enter on "Free space"
 
 e) Go to Quit and press Enter
 
+//TO DO experiment with another partion intended for /boot
 
 3. Format the newly partioned disk
 
