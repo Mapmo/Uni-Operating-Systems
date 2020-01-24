@@ -25,9 +25,6 @@ export EDITOR=/usr/bin/vim
 #export PILOTPORT=/dev/pilot
 #export PILOTRATE=115200
 
-#night mode for less eyes damage
-redshift -l 55.7:12.6 -t 5300:5300 -g 0.9 -m randr &
-
 #own aliases
 alias лс=ls
 alias жим=vim
