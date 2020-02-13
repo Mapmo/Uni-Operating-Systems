@@ -152,7 +152,7 @@ void ProcessDataFromBank(const int s, const char ACCOUNT, char* str)
 
 void SendRequest(const int s, char* str)
 {
- 	if(printf(">What should we do next?: "), (fgets(str, 100, stdin) != NULL) == -1)
+ 	if(printf(">What should we do next?: ") && fgets(str, 100, stdin) == NULL)
 	{
 		Release(s);
 		err(3, "error printing 'connected'");
