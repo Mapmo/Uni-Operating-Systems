@@ -25,6 +25,21 @@ void ValidateArgc(const int argc, const char* argv[])
         }
 }
 
+void WipeFile(const int fd)
+{
+	if((ftruncate(fd, 0)) == -1) //wipes the content of the file
+	{
+		close(fd);
+		err(6, "Problem wiping the content of the file");
+	}
+			
+
+	if(lseek(fd, 0, SEEK_SET) == -1) //if not done the fd will continue to write where the fd is
+	{
+		err(6, "Problem seeking to the beginning of file");
+	}	
+}
+
 int OpenFile(const char* arg)
 {
 	int fd = open(arg, O_RDWR | O_CREAT, 0666);
@@ -40,14 +55,19 @@ int OpenFile(const char* arg)
 	{
 		err(6, "Problem seeking the end in %s", arg);
 	}
-	else if(seeker == 0)
-        {
-		uint32_t zero = 0;
-	       	for(int i = 0; i < ACCOUNTS; i++)
-		{
-			if(write(fd, &zero, 4) == -1)
+	else 
+	{
+		if(seeker != (ACCOUNTS * sizeof(uint32_t))) //in case the file does not have exactly the bytes needed for the bank
+        	{
+			WipeFile(fd);
+			
+			uint32_t zero = 0;
+	       		for(int i = 0; i < ACCOUNTS; i++)
 			{
-				err(6, "Problem while writing in the new file");
+				if(write(fd, &zero, sizeof(zero)) == -1)
+				{
+					err(6, "Problem while writing in the new file");
+				}
 			}
 		}
         }
@@ -76,6 +96,7 @@ int OpenSocket(const int * fd)
 }
 
 void SetSocket(const int * sock, struct sockaddr_un * local, int * len, int * fd)
+
 {
 	(*local).sun_family = AF_UNIX;
         strcpy((*local).sun_path, SOCK_PATH);
@@ -117,13 +138,15 @@ sem_t * SetMutex(const int* fd, const int* sock)
 		}
                 printf("Mutex recreated!\n");
                 mutex = sem_open("mutex", O_CREAT| O_EXCL, 0666, 1);
-        }
+	}
+
 	return mutex;
 }
 
 void Release(const int* fd, const int* sock, const int* sock2)
 {
 	const int _errno = errno;
+
 	close(*fd);
 	close(*sock);
 	close(*sock2);
@@ -188,32 +211,38 @@ void SendClientCurrentBalance(const int fd, const int sock, const int sock2, con
                         Release(&fd, &sock, &sock2);
                         err(6, "Problem while seeking account data");
                 }
-                if(read(fd, parser1, 4) == -1)
+
+		if(read(fd, parser1, 4) == -1)
                 {
                         Release(&fd, &sock, &sock2);
                         err(6, "error while reading the account data");
                 }
-                if(send(sock2, "Current Balance of Account#", 50, 0) == -1)
+
+		if(send(sock2, "Current Balance of Account#", 50, 0) == -1)
                 {
                         Release(&fd, &sock, &sock2);
                         err(4, "error sending balance to client");
                 }
+
 		str[0] = accountNumber + 'A';
-                if(send(sock2, str, 1, 0) == -1)
+		if(send(sock2, str, 1, 0) == -1)
                 {
                         Release(&fd, &sock, &sock2);
                         err(4, "error sending id to client");
                 }
+
                 if(send(sock2, " is ", 5, 0) == -1)
                 {
                         Release(&fd, &sock, &sock2);
                         err(4, "error sending 'is' to client");
                 }
+
                 if(sprintf(str, "%d", *parser1) < 0)
                 {
                         Release(&fd, &sock, &sock2);
                         err(3, "error converting data");
                 }
+
                 if(send(sock2, str, 50, 0) == -1)
                 {
                         Release(&fd, &sock, &sock2);
@@ -225,7 +254,7 @@ void SendClientCurrentBalance(const int fd, const int sock, const int sock2, con
 void ProcessClientInput(const int fd, const int sock, const int sock2, const char accountNumber, char* str, uint32_t parser1, int t)
 {
 	int16_t parser2;
-	if ((t=recv(sock2, str, 50, 0)) < 0)
+	if ((t = recv(sock2, str, 50, 0)) < 0)
         {
 		Release(&fd, &sock, &sock2);
                 err(5, "error receiving input from client");
@@ -275,27 +304,20 @@ void ProcessClientInput(const int fd, const int sock, const int sock2, const cha
 	}
 }
 
-int main(const int argc, const char* argv[])
+void StartProcess(const int fd, const int sock)
 {
-	ValidateArgc(argc, argv);
-	
-	int fd = OpenFile(argv[1]), t;
-	int sock = OpenSocket(&fd), sock2, len;
-	struct sockaddr_un local, remote;
 	char accountNumber, str[100];
+	int t, sock2;
 	uint32_t parser1;
-
-	SetSocket(&sock, &local, &len, &fd);
-
-	SetMutex(&fd, &sock);
-	
+	struct sockaddr_un remote;
+        
 	while(1)
 	{      	
 		PrintWaitingForClient(fd, sock, sock2);
-
+		
 		t = sizeof(remote);
 
-        	AcceptClient(&fd, &sock, &sock2, &remote, &t);
+		AcceptClient(&fd, &sock, &sock2, &remote, &t);
 
         	PrintClientConnected(fd, sock, sock2);
 
@@ -310,6 +332,21 @@ int main(const int argc, const char* argv[])
 
         	close(sock2);
 	}
+}
+
+int main(const int argc, const char* argv[])
+{
+	ValidateArgc(argc, argv);
+	
+	int fd = OpenFile(argv[1]);
+	int sock = OpenSocket(&fd), len;
+	struct sockaddr_un local;
+
+	SetSocket(&sock, &local, &len, &fd);
+
+	SetMutex(&fd, &sock);
+	
+	StartProcess(fd, sock);
 
 	sem_unlink(MUTEX);	
 	close(sock);

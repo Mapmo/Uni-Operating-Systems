@@ -15,12 +15,13 @@
 #define SOCK_PATH "server_socket"
 sem_t* mutex;
 const char* MUTEX = "mutex";
+enum EXIT_STATUS{SUCCESS, ERR_ARGS, ERR_SOCKET, ERR_PRINTF, ERR_SEND, ERR_RECV, ERR_FILE, ERR_SEM};
 
 void ValidateArgc(const int argc, const char* argv[])
 {
         if(argc != 2)
         {
-                errx(1, "Wrong ammount of arguments in: %s", argv[0]);
+                errx(ERR_ARGS, "Wrong ammount of arguments in: %s", argv[0]);
         }
 }
 
@@ -37,7 +38,7 @@ void SetSocket(int* s)
 {
         if ((*s = socket(AF_UNIX, SOCK_STREAM, 0)) == -1)
         {
-                err(2, "error creating socket");
+                err(ERR_SOCKET, "error creating socket");
         }
 
         if(printf("Trying to connect...\n") < 0)
@@ -45,13 +46,18 @@ void SetSocket(int* s)
                 const int _errno = errno;
                 close(*s);
                 errno = _errno;
-                err(3, "error printing");
+                err(ERR_PRINTF, "error printing");
         }
 }
 
-void SetMutex()
+void SetMutex(const int s)
 {
-	mutex = sem_open(MUTEX, O_CREAT, 0666, 1);
+	if((mutex = sem_open(MUTEX, O_CREAT, 0666, 1)) == SEM_FAILED)
+	{
+		Release(s);
+		err(ERR_SEM, "error opening the semaphore");
+	}
+
         sem_wait(mutex);
 }
 
@@ -64,13 +70,13 @@ void ConnectToBank(const int s, struct sockaddr_un* remote)
         if (connect(s, (struct sockaddr *) remote, len) == -1)
         {
                 Release(s);
-                err(2, "Can't connect to server");
+                err(ERR_SOCKET, "Can't connect to server");
         }
 
         if(printf("Connected.\n") < 0) 
         {
                 Release(s);
-                err(3, "error printing 'connected'");
+                err(ERR_PRINTF, "error printing 'connected'");
         }
 }
 
@@ -81,13 +87,13 @@ void ProcessDataFromBank(const int s, const char ACCOUNT, char* str)
 	if(send(s, &ACCOUNT, 1, 0) == -1)
         {
                 Release(s);
-                err(4, "error sending data");
+                err(ERR_SEND, "error sending data");
         }
 
         if ((t=recv(s, str, 1, 0)) < 0)
         {
                	Release(s);
-                err(5, "error receiving acc#");
+                err(ERR_RECV, "error receiving acc#");
         }
 
         if(str[0] == 0)
@@ -99,13 +105,13 @@ void ProcessDataFromBank(const int s, const char ACCOUNT, char* str)
         if ((t=recv(s, str, 50, 0)) < 0)
         {
                 Release(s);
-                err(5, "error receiving prior acc#");
+                err(ERR_RECV, "error receiving prior acc#");
         }
 
         if(printf("%s", str) == -1)
 	{
 		Release(s);
-		err(3, "error printing 'connected'");
+		err(ERR_PRINTF, "error printing 'connected'");
         }
 
         str[t] = '\0';
@@ -113,42 +119,42 @@ void ProcessDataFromBank(const int s, const char ACCOUNT, char* str)
         if ((t=recv(s, str, 1, 0)) < 0)
         {
                 Release(s);
-                err(5, "error receiving acc#");
+                err(ERR_RECV, "error receiving acc#");
         }
 
         str[t] = '\0';
         if(printf("%s", str) == -1)
 	{
                 Release(s);
-                err(3, "error printing 'connected'");
+                err(ERR_PRINTF, "error printing 'connected'");
         }
 
 
         if ((t=recv(s, str, 5, 0)) < 0)
         {
                 Release(s);
-                err(5, "error receiving after acc#");
+                err(ERR_RECV, "error receiving after acc#");
         }
         str[t] = '\0';
 
         if(printf("%s", str) == -1)
 	{
                 Release(s);
-                err(3, "error printing 'connected'");
+                err(ERR_PRINTF, "error printing 'connected'");
         }
 
 
         if ((t=recv(s, str, 50, 0)) < 0)
         {
                 Release(s);
-                err(5, "error receiving balance");
+                err(ERR_RECV, "error receiving balance");
         }
         str[t] = '\0';
         
 	if(printf("%s\n", str) == -1)
 	{
                 Release(s);
-                err(3, "error printing 'connected'");
+                err(ERR_PRINTF, "error printing 'connected'");
         }
 
 }
@@ -158,19 +164,19 @@ void SendRequest(const int s, char* str)
  	if(printf(">What should we do next?: ") && fgets(str, 100, stdin) == NULL)
 	{
 		Release(s);
-		err(3, "error printing 'connected'");
+		err(ERR_PRINTF, "error printing 'connected'");
 	}
 
         if (send(s, str, strlen(str), 0) == -1)
         {
                 Release(s);
-                err(4, "error while sending input to server");
+                err(ERR_SEND, "error while sending input to server");
         }
 
         if (recv(s, str, 1, 0) <= 0)
         {
                 Release(s);
-                err(5, "error receiving transaction status");
+                err(ERR_RECV, "error receiving transaction status");
         }
 }
 
@@ -181,11 +187,11 @@ void Exit(const int s, const char status)
 	if(status == 1)
         {
                 printf("User completed transaction successfully\n");
-                exit(0);
+                exit(SUCCESS);
         }
         else
         {
-                errx(6, "Transaction failed\n");
+                errx(ERR_FILE, "Transaction failed\n");
         }
 }
 
@@ -200,7 +206,7 @@ int main(const int argc, const char* argv[])
 	
 	SetSocket(&s);
 
-	SetMutex();
+	SetMutex(s);
 
     	ConnectToBank(s, &remote); 
 	ProcessDataFromBank(s, ACCOUNT, str);
