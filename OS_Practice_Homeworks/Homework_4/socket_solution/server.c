@@ -206,17 +206,18 @@ char ProcessClientId(const int fd, const int sock, const int sock2, char* str, c
 
 void SendClientCurrentBalance(const int fd, const int sock, const int sock2, const char accountNumber, char* str, uint32_t* parser1)
 {
-                if(lseek(fd, 4 * accountNumber, SEEK_SET) == -1)
+                if(lseek(fd, sizeof(uint32_t) * accountNumber, SEEK_SET) == -1)
                 {
                         Release(&fd, &sock, &sock2);
                         err(ERR_FILE, "Problem while seeking account data");
                 }
 
-		if(read(fd, parser1, 4) == -1)
+		if(read(fd, parser1, sizeof(uint32_t)) == -1)
                 {
                         Release(&fd, &sock, &sock2);
                         err(ERR_FILE, "error while reading the account data");
                 }
+
 
 		if(send(sock2, "Current Balance of Account#", 50, 0) == -1)
                 {
@@ -274,20 +275,15 @@ void ProcessClientInput(const int fd, const int sock, const int sock2, const cha
                 if(calc >= 0 && calc <= UINT32_MAX)
                 {
                 	parser1 += parser2;
-                        if(lseek(fd, 4 * accountNumber, SEEK_SET) == -1)
+                        if(lseek(fd, sizeof(uint32_t) * accountNumber, SEEK_SET) == -1)
                         {
                                 Release(&fd, &sock, &sock2);
                                 err(ERR_FILE, "error while seeking to update balance");
                         }
-                        if(write(fd, &parser1, 4) != 4)
+                        if(write(fd, &parser1, sizeof(uint32_t)) != sizeof(uint32_t))
                         {
                                 Release(&fd, &sock, &sock2);
-                                err(ERR_FILE, "Error while reading");
-                        }
-			if(write(fd, &parser1, 4) != 4)
-                        {
-                                Release(&fd, &sock, &sock2);
-                                err(ERR_FILE, "Error while reading");
+                                err(ERR_FILE, "Error while writing to bank account");
                         }
                         str[0] = 1;
             	}
