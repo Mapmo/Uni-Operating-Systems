@@ -12,16 +12,16 @@
 #include <semaphore.h>
 #include <errno.h>
 
-//TO DO nomerirane na typite error codes
 const char ACCOUNTS = 8;
 const char* SOCK_PATH = "server_socket";
 const char* MUTEX = "mutex";
+enum EXIT_STATUS{SUCCESS, ERR_ARGS, ERR_SOCKET, ERR_PRINTF, ERR_SEND, ERR_RECV, ERR_FILE, ERR_SEM}; 
 
 void ValidateArgc(const int argc, const char* argv[])
 {
         if(argc != 2)
         {
-                errx(1, "Wrong ammount of arguments in: %s", argv[0]);
+                errx(ERR_ARGS, "Wrong ammount of arguments in: %s", argv[0]);
         }
 }
 
@@ -30,13 +30,13 @@ void WipeFile(const int fd)
 	if((ftruncate(fd, 0)) == -1) //wipes the content of the file
 	{
 		close(fd);
-		err(6, "Problem wiping the content of the file");
+		err(ERR_FILE, "Problem wiping the content of the file");
 	}
 			
 
 	if(lseek(fd, 0, SEEK_SET) == -1) //if not done the fd will continue to write where the fd is
 	{
-		err(6, "Problem seeking to the beginning of file");
+		err(ERR_FILE, "Problem seeking to the beginning of file");
 	}	
 }
 
@@ -46,14 +46,14 @@ int OpenFile(const char* arg)
 
         if(fd == -1)
         {
-                err(6, "Problem opening %s", arg);
+                err(ERR_FILE, "Problem opening %s", arg);
         }
 
         int seeker = lseek(fd, 0, SEEK_END);
 
 	if(seeker == -1)
 	{
-		err(6, "Problem seeking the end in %s", arg);
+		err(ERR_FILE, "Problem seeking the end in %s", arg);
 	}
 	else 
 	{
@@ -66,7 +66,7 @@ int OpenFile(const char* arg)
 			{
 				if(write(fd, &zero, sizeof(zero)) == -1)
 				{
-					err(6, "Problem while writing in the new file");
+					err(ERR_FILE, "Problem while writing in the new file %s", arg);
 				}
 			}
 		}
@@ -74,7 +74,7 @@ int OpenFile(const char* arg)
 
 	if(lseek(fd, 0, SEEK_SET) == -1)
 	{
-		err(6, "Problem returning to beginning in %s", arg);
+		err(ERR_FILE, "Problem returning to beginning in %s", arg);
 	}	
 
 	return fd;
@@ -82,14 +82,14 @@ int OpenFile(const char* arg)
 
 int OpenSocket(const int * fd)
 {
-	int sock = socket(AF_UNIX, SOCK_STREAM, 0); //moje AF_LOCAL vmesto AF_UNIX
+	int sock = socket(AF_UNIX, SOCK_STREAM, 0);
 	
 	if(sock == -1)
 	{
 		const int _errno = errno;
 		close(*fd);
 		errno = _errno;
-		err(2, "Problem opening socket");
+		err(ERR_SOCKET, "Problem opening socket");
 	}
 
 	return sock;
@@ -110,7 +110,7 @@ void SetSocket(const int * sock, struct sockaddr_un * local, int * len, int * fd
 		close(*fd);
 		close(*sock);
 		errno = _errno;
- 		err(2, "Problem bounding");
+ 		err(ERR_SOCKET, "Problem bounding");
         }
 	
 	if(listen(*sock, 1) == -1)
@@ -119,7 +119,7 @@ void SetSocket(const int * sock, struct sockaddr_un * local, int * len, int * fd
 		close(*sock);
 		close(*fd);
 		errno = _errno;
-		err(2, "Problem listening");
+		err(ERR_SOCKET, "Problem listening");
 	}
 }
 
@@ -134,7 +134,7 @@ sem_t * SetMutex(const int* fd, const int* sock)
 			close(*fd);
 			close(*sock);
 			errno = _errno;
-			err(7, "Can't unlink already opened mutex");
+			err(ERR_SEM, "Problem unlinking already opened mutex");
 		}
                 printf("Mutex recreated!\n");
                 mutex = sem_open("mutex", O_CREAT| O_EXCL, 0666, 1);
@@ -159,7 +159,7 @@ void PrintWaitingForClient(const int fd, const int sock, const int sock2)
      	if(printf("Waiting for a client...\n") < 0)
      	{
         	Release(&fd, &sock, &sock2);
-                err(3, "Problem whith printf");
+                err(ERR_PRINTF, "Problem whith printf");
 	}
 }
 
@@ -168,7 +168,7 @@ void AcceptClient(const int* fd, const int* sock, int* sock2, struct sockaddr_un
 	if ((*sock2 = accept(*sock, (struct sockaddr*) remote, (socklen_t *)t)) == -1)
 	{
         	Release(fd, sock, sock2);
-                err(2, "error while accepting client");
+                err(ERR_SOCKET, "error while accepting client");
         }
 }
 
@@ -177,7 +177,7 @@ void PrintClientConnected(const int fd, const int sock, const int sock2)
     	if(printf("A Client Connected To The Bank.\n\n") < 0)
 	{
                 Release(&fd, &sock, &sock2);
-                err(3, "Problem whith printf");
+                err(ERR_PRINTF, "Problem whith printf");
         }
 }
 
@@ -186,7 +186,7 @@ char ProcessClientId(const int fd, const int sock, const int sock2, char* str, c
 	if(recv(sock2, str, 1, 0) != 1)
         {
                 Release(&fd, &sock, &sock2);
-                err(5, "error while receiving acc from client");
+                err(ERR_RECV, "error while receiving acc from client");
         }
 
         *accountNumber = str[0] - 'A';
@@ -209,44 +209,44 @@ void SendClientCurrentBalance(const int fd, const int sock, const int sock2, con
                 if(lseek(fd, 4 * accountNumber, SEEK_SET) == -1)
                 {
                         Release(&fd, &sock, &sock2);
-                        err(6, "Problem while seeking account data");
+                        err(ERR_FILE, "Problem while seeking account data");
                 }
 
 		if(read(fd, parser1, 4) == -1)
                 {
                         Release(&fd, &sock, &sock2);
-                        err(6, "error while reading the account data");
+                        err(ERR_FILE, "error while reading the account data");
                 }
 
 		if(send(sock2, "Current Balance of Account#", 50, 0) == -1)
                 {
                         Release(&fd, &sock, &sock2);
-                        err(4, "error sending balance to client");
+                        err(ERR_PRINTF, "error sending balance to client");
                 }
 
 		str[0] = accountNumber + 'A';
 		if(send(sock2, str, 1, 0) == -1)
                 {
                         Release(&fd, &sock, &sock2);
-                        err(4, "error sending id to client");
+                        err(ERR_PRINTF, "error sending id to client");
                 }
 
                 if(send(sock2, " is ", 5, 0) == -1)
                 {
                         Release(&fd, &sock, &sock2);
-                        err(4, "error sending 'is' to client");
+                        err(ERR_PRINTF, "error sending 'is' to client");
                 }
 
                 if(sprintf(str, "%d", *parser1) < 0)
                 {
                         Release(&fd, &sock, &sock2);
-                        err(3, "error converting data");
+                        err(ERR_PRINTF, "error converting data");
                 }
 
                 if(send(sock2, str, 50, 0) == -1)
                 {
                         Release(&fd, &sock, &sock2);
-                        err(4, "error sending balance to client");
+                        err(ERR_PRINTF, "error sending balance to client");
                 }
 
 }
@@ -257,14 +257,14 @@ void ProcessClientInput(const int fd, const int sock, const int sock2, const cha
 	if ((t = recv(sock2, str, 50, 0)) < 0)
         {
 		Release(&fd, &sock, &sock2);
-                err(5, "error receiving input from client");
+                err(ERR_RECV, "error receiving input from client");
         }
         str[t] = '\0';
 
         if(sscanf(str, "%hd", &parser2) == EOF)
         {
                 Release(&fd, &sock, &sock2);
-                err(3, "error while converting input to short");
+                err(ERR_PRINTF, "error while converting input to short");
         }
         else
         {
@@ -277,17 +277,17 @@ void ProcessClientInput(const int fd, const int sock, const int sock2, const cha
                         if(lseek(fd, 4 * accountNumber, SEEK_SET) == -1)
                         {
                                 Release(&fd, &sock, &sock2);
-                                err(6, "error while seeking to update balance");
+                                err(ERR_FILE, "error while seeking to update balance");
                         }
                         if(write(fd, &parser1, 4) != 4)
                         {
                                 Release(&fd, &sock, &sock2);
-                                err(6, "Error while reading");
+                                err(ERR_FILE, "Error while reading");
                         }
 			if(write(fd, &parser1, 4) != 4)
                         {
                                 Release(&fd, &sock, &sock2);
-                                err(6, "Error while reading");
+                                err(ERR_FILE, "Error while reading");
                         }
                         str[0] = 1;
             	}
@@ -300,7 +300,7 @@ void ProcessClientInput(const int fd, const int sock, const int sock2, const cha
         if (send(sock2, str, 1, 0) == -1)
        	{
 		Release(&fd, &sock, &sock2);
-                err(4, "error while sending to client");
+                err(ERR_PRINTF, "error while sending to client");
 	}
 }
 
@@ -351,5 +351,5 @@ int main(const int argc, const char* argv[])
 	sem_unlink(MUTEX);	
 	close(sock);
 	close(fd);
-	exit(0);
+	exit(SUCCESS);
 }
