@@ -270,7 +270,7 @@ void ProcessClientInput(const int fd, const int sock, const int sock2, const cha
         else
         {
 		int64_t calc = parser1;
-                calc+= parser2;
+                calc += parser2;
 
                 if(calc >= 0 && calc <= UINT32_MAX)
                 {
