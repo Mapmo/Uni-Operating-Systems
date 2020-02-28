@@ -1,0 +1,3 @@
+The following commands finds the name of the package that installed the command <cmd> (only works on Debian based distributions)
+
+dpkg -S $(which <cmd>)
