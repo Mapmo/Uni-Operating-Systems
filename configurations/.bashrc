@@ -73,3 +73,4 @@ function q
 
 test -s ~/.alias && . ~/.alias || true
 export PS1="\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w>$ \[\e[m\]"
+cmatrix -C cyan -s
