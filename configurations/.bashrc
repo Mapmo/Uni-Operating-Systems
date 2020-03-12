@@ -45,6 +45,8 @@ alias кон=kon
 alias kof="xset led off"
 alias коф=kof
 
+alias ups="sudo apt update && sudo apt full-upgrade"
+
 function pwd
 {
 	echo
@@ -76,7 +78,7 @@ export PS1="\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w>$ \[\e[m\]"
 
 PNAME=$(ps --pid=$PPID --no-header | awk '{print $(NF)}')
 
-if [ $PNAME != gdm-x-session ]
+if [ $PNAME != gdm-x-session ] #for GNOME GUI
 then
 	cmatrix -C cyan -s
 fi
