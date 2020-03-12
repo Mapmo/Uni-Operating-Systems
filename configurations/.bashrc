@@ -63,7 +63,7 @@ function cd
 
 function q
 {
-	pgrep chrome | xargs kill -s SIGTERM #usually only my chrome is active when I try to poweroff
+	pkill chrome #usually only my chrome is active when I try to poweroff
 
 	sleep 0.2
 
