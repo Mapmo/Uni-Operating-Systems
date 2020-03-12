@@ -73,10 +73,4 @@ function q
 
 test -s ~/.alias && . ~/.alias || true
 export PS1="\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w>$ \[\e[m\]"
-
-PNAME=$(ps --pid=$PPID --no-header | awk '{print $(NF)}')
-
-if [ $PNAME != gdm-x-session ]
-then
-	cmatrix -C cyan -s
-fi
+cmatrix -C cyan -s
