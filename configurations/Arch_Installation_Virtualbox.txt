@@ -142,7 +142,7 @@ b) Configure the grub boot loader
  
 13. Create initial ramdisk
 
-	mkinitcpio - p linux
+	mkinitcpio -p linux
 
 14. Complete the instalation
 
