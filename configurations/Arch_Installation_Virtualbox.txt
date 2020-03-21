@@ -6,11 +6,6 @@ Resources for the machine that I used:
 
 After loading the .iso
 
-0. Make sure you have internet
-
-	ping google.com
-
-
 1. Check the Internet connection by typing in the following command.
 
 	ping google.com 
