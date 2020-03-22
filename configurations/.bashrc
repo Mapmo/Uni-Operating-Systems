@@ -59,13 +59,21 @@ function pwd
 function cd
 {
 	echo
-	command cd "$*"
+
+	if [ -z "$*" ]
+	then
+		command	cd ~
+	else
+		command cd "$*"
+	
+	fi
+	
 	pwd
 }
 
 function q
 {
-	pkill chrome #usually only my chrome is active when I try to poweroff
+	pkill firefox  #usually only my chrome es active when I try to poweroff
 
 	sleep 0.2
 
