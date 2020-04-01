@@ -1,0 +1,183 @@
+Guide for installing Linux Arch on a virtual machine
+
+Resources for the machine that I used:
+6gb RAM
+30gb HDD
+
+After loading the .iso
+
+1. Check the Internet connection by typing in the following command.
+
+	ping google.com 
+
+
+2. Partition the hard disk
+
+	cfdisk
+
+a) Select dos label type
+
+b) Press enter on "Free space" 
+	- allocate 20G
+	- select as primary
+	- go to Bootable and press Enter
+	- go to Write and press Enter, then type 'yes' (no brackets)
+
+c) Press enter on "Free space"
+	- allocate 2G
+	- select as primary if not planning to have another os
+	- go to Write and press Enter, then type 'yes' (no brackets)
+
+d)  Press enter on "Free space"
+	- allocate the remaining memory
+	- select as primary if not planning to have another os
+	- go to Write and press Enter, then type 'yes' (no brackets)
+
+e) Go to Quit and press Enter
+
+//TO DO experiment with another partion intended for /boot
+
+3. Format the newly partioned disk
+
+	mkfs.ext4 /dev/sda1
+	mkfs.ext4 /dev/sda3 
+	mkswap /dev/sda2
+
+
+4. Activate the swap
+
+	swapon /dev/sda2 
+
+
+5. Mount the primary partition to start the installation
+
+	mount /dev/sda1 /mnt
+	mkdir /mnt/home
+	mount /dev/sda3 /mnt/home
+
+
+6. Bootstrap the system
+
+	pacstrap /mnt base linux linux-firmware
+
+
+7. Create the fstab file
+
+	genfstab /mnt>> /mnt/etc/fstab 
+
+
+8. Configure locale, time and root password
+
+	arch-chroot /mnt /bin/bash
+
+a) Install vim and dhcpcd
+
+	pacman -S vim dhcpcd
+
+b) Configure the language settings:
+
+	vim /etc/locale.gen
+	
+	- Remove the comment character $ om front of en_US.UTF-8 UTF-8
+	- Save and exit
+
+c) Activate the locale
+
+	locale-gen
+
+d) Create the  /etc/locale.conf file
+
+	vim /etc/locale.conf 
+
+	- Choose the language by adding this line
+	
+		LANG=en_US.UTF-8
+	
+	- Save and exit
+
+e) Select your zone
+
+	ln –s /usr/share/zoneinfo/Europe/Sofia /etc/localtime
+
+f) Set the time standard
+
+	hwclock --systohc --utc
+
+
+9. Set the root user password
+
+	passwd
+
+
+10. Enter the host name of the network
+
+	vim /etc/hostname
+
+	-E.g Martin-Lenovo-L340
+
+
+11. Enable dhcpcd
+
+	systemctl enable dhcpcd
+
+
+12. Install the bootloader
+
+	pacman –S grub os-prober
+
+
+a) Install the grub boot loader to the hard disk
+
+	grub-install /dev/sda
+
+b) Configure the grub boot loader
+
+	grub-mkconfig –o /boot/grub/grub.cfg
+
+ 
+13. Create initial ramdisk
+
+	mkinitcpio -p linux
+
+14. Complete the instalation
+
+	exit
+	reboot
+
+
+15. Add desktop manager
+
+Install lightdm
+
+	 pacman -S lightdm lightdm-kde-greeter
+
+
+16. Install Plasma
+
+	 pacman -S plasma-meta 
+
+*Choose the default
+
+
+17. Install utilities needed for your desktop environment (that I did not get after installation)
+
+	pacman -S packagekit-qt5 konsole
+
+* packagekit-qt5 is for the discover app
+* konsole is the terminal emulator app
+
+
+18. Activate lightdm
+
+	systemctl enable lightdm.service
+	systemctl start lightdm.service
+
+
+19. Enjoy your Arch linux with KDE GUI :)
+
+
+Sources:
+Steps 1-12: https://www.howtoforge.com/tutorial/install-arch-linux-on-virtualbox/
+Steps 13-15: https://bbs.archlinux.org/viewtopic.php?id=238962
+
+Step 18: https://unix.stackexchange.com/questions/115453/kde-and-lightdm-on-archlinux
