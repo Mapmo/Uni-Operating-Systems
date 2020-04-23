@@ -45,6 +45,7 @@ function pwd
 	echo
 end
 
+<<<<<<< HEAD
 #some issue with output when using (builtin cd)
 #function cd
 #	echo
@@ -55,6 +56,19 @@ end
 #	end	
 #	pwd
 #end
+=======
+function cd
+	echo
+
+	if test -z $argv 
+		builtin	cd ~
+	else
+		builtin cd $argv
+	end	
+	
+	pwd
+end
+>>>>>>> c9675cfd5ef69ff41d55a5c171a0fa3f60aa0ccb
 
 function q
 	pkill firefox  #usually only my web browser is active when I try to poweroff
