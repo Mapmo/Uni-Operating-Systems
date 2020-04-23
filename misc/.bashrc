@@ -27,7 +27,7 @@ alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
 alias ups="sudo pacman -Suy"
 
-function pwd
+function pwd 
 {
 	echo
 	echo "Welcome to $(command pwd):"
@@ -58,6 +58,11 @@ function q
 	sleep 0.2
 
 	sudo poweroff
+}
+
+function locate
+{
+    /usr/bin/locate $1 | grep -v timeshift
 }
 
 export PS1="\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w>$ \[\e[m\]"
