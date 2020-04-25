@@ -25,7 +25,7 @@ alias ls="ls --color=auto"
 alias neo="neofetch"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
-alias ups="sudo pacman -Suy"
+alias ups="sudo pacman -Syu"
 
 function pwd 
 {
