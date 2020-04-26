@@ -26,6 +26,7 @@ alias neo="neofetch"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
 alias ups="sudo pacman -Syu"
+alias upsy="sudo pacman -Syyu"
 
 function pwd 
 {
