@@ -12,6 +12,7 @@ alias пвд=pwd
 alias цд=cd
 alias цлеар=clear
 alias я=q
+alias нео="neofetch"
 
 #aliases for my keyboard lighting
 alias kon="xset led on"
