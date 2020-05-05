@@ -96,4 +96,11 @@ for i in $target_files; do
 	fi
 done
 
+while read dep_name; do 
+	dep_new_path=$(dirname $dep_name | tail -c +2)
+	mkdir -p $dep_new_path
+	cp $dep_name $dep_new_path
+done < <(sort -u $ldd_list)
+
 rm $ldd_list
+
