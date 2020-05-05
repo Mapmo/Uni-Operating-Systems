@@ -19,6 +19,7 @@ function quit {
 	exit $2
 }
 
+#the following function adds its parameter to the temp file, gets all file dependencies and recursively calls itself for each dependency 
 function extract_ldd {
 	if [ $# != 1 ]; then
 		quit "Wrong amount of paramters passed to extract_ldd" 3
@@ -39,7 +40,7 @@ function extract_ldd {
 
 target_active=false 	#flag used to indicate that parameter -t was given
 dir_active=false	#flag used to indicate that parameter -d was given
-dir_name="$(pwd)"	#the name of the directory where the chroot will happen
+dir_name="."		#the name of the directory where the chroot will happen
 target_files="/bin/bash" #the files that the user needs in the chroot directory
 
 #The following loop will parse the parameters, apologies for the chaotic order of cases, but it was needed to match the logic of the script
@@ -85,7 +86,9 @@ for i in $target_files; do
 	fi
 done
 
-ldd_list=$(mktemp)
+ldd_list=$(mktemp) #here all dependencies found are being stored
+
+#the following loop calls extract_ldd for each dependecy file all filesin a directory that were specified in -t
 for i in $target_files; do
 	if [ -d $i ]; then
 		for j in $(find $i -type f); do
@@ -96,11 +99,11 @@ for i in $target_files; do
 	fi
 done
 
+#will create the needed dependencies in the specified directory by -d, by keeping their aboslute path name
 while read dep_name; do 
 	dep_new_path=$(dirname $dep_name | tail -c +2)
-	mkdir -p $dep_new_path
-	cp $dep_name $dep_new_path
+	mkdir -p "$dir_name/$dep_new_path"
+	cp $dep_name "$dir_name/$dep_new_path"
 done < <(sort -u $ldd_list)
 
 rm $ldd_list
-
