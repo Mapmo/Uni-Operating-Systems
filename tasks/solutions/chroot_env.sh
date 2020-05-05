@@ -21,13 +21,15 @@ function quit {
 
 target_active=false 	#flag used to indicate that parameter -t was given
 dir_active=false	#flag used to indicate that parameter -d was given
-dir_name="$(pwd)"
-target_files="/bin/bash"
+dir_name="$(pwd)"	#the name of the directory where the chroot will happen
+target_files="/bin/bash" #the files that the user needs in the chroot directory
+
+#The following loop will parse the parameters, apologies for the chaotic order of cases, but it was needed to match the logic of the script
 for i in "$@"; do
-	if [ $dir_active == true ]; then
+	if [ $dir_active == true ]; then   #required at top because after -d it is mandatory to pass dirname
 		dir_name="$i"
 		dir_active=false
-	elif [[ $i =~ ^- ]]; then
+	elif [[ $i =~ ^- ]]; then 	#required before the check for -t filename because it ends the streak of -t filenames
 		case "$i" in
 			-h | --help)
 				print_help
@@ -54,5 +56,3 @@ if [ $dir_active == true ]; then
        	quit "Missing -d value" 1
 fi
 
-echo "Targets: $target_files"
-echo "Dir: $dir_name"
