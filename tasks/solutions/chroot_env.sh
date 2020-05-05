@@ -56,3 +56,6 @@ if [ $dir_active == true ]; then
        	quit "Missing -d value" 1
 fi
 
+if [ ! -d $dir_name ]; then
+	mkdir -p "$dir_name"
+fi
