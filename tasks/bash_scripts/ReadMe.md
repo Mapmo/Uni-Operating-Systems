@@ -35,3 +35,7 @@ log-02-05-2020 {\
 
 	a) Write a bash script that validates that there is no record where (successful-builds - failed-builds > 2000)
 	b) Write a bash script that prints all records where failed-builds are more than or equal to successful builds
+
+4. The command chroot starts a new session where the current directory becomes root ( / ). However, there are required files for the new / to be usable, for instance /bin/bash . Users may need other programs as well.\
+Write a bash script that copies all the required files for chrooting (/bin/bash is mandatory). User should be able to specify more required files or even required directories. User should also be able to choose  the chroot directory, if none is selected then assume it's the current working directory.\
+Hint: use ldd to find the dependencies of a file and remember that these dependencies may also have dependencies
