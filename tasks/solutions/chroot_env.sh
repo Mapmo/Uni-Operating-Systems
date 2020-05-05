@@ -19,6 +19,24 @@ function quit {
 	exit $2
 }
 
+function extract_ldd {
+	if [ $# != 1 ]; then
+		quit "Wrong amount of paramters passed to extract_ldd" 3
+	fi
+
+	echo $1 >> $ldd_list
+
+	deps=$(ldd $1 | awk '{print $3}' | xargs)
+	
+	if [ "$deps" == 'statically linked' ]; then
+		return 0
+	fi
+
+	for i in $deps; do
+		extract_ldd $i
+	done
+}
+
 target_active=false 	#flag used to indicate that parameter -t was given
 dir_active=false	#flag used to indicate that parameter -d was given
 dir_name="$(pwd)"	#the name of the directory where the chroot will happen
@@ -59,3 +77,23 @@ fi
 if [ ! -d $dir_name ]; then
 	mkdir -p "$dir_name"
 fi
+
+#first validate that all the targets exist
+for i in $target_files; do
+	if [ ! -e $i ]; then
+		quit "No file $i found" 2
+	fi
+done
+
+ldd_list=$(mktemp)
+for i in $target_files; do
+	if [ -d $i ]; then
+		for j in $(find $i -type f); do
+			extract_ldd $j 
+		done
+	else
+		extract_ldd $(dirname $i)/$(basename $i) 
+	fi
+done
+
+rm $ldd_list
