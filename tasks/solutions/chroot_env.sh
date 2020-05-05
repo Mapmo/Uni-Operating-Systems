@@ -46,7 +46,7 @@ for i in "$@"; do
 		fi
 		target_files="${target_files} ${i}"
 	else
-		quit echo "No parameter name specified $1" 1
+		quit "No parameter name specified $i" 1
 	fi
 done
 
