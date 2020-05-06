@@ -45,3 +45,19 @@ Hint: use ldd to find the dependencies of a file and remember that these depende
   command0 || file1\
   command0 || file2\
   command1 || file0
+
+6. Write a bash script which will parse a text file with the following format:\
+64.31.49.26|2013-07-24-06:51:01|Blocked by pesho\
+108.16|2013-07-24-08:17:01|Blocked by niki\
+183.12013-07-24-11:51:00|Blocked by mm\
+183.29|2013-07-24-11:51:01|Blocked by joro\
+112.16|2013-07-24-13:00:00|Blocked by toni\
+220.14|2013-07-24-13:00:01|Blocked by pesho\
+82.5013-07-24-13:51:00|Blocked by pesho\
+103.62013-07-24-16:51:00|Blocked by misho\
+111.2|2013-07-24-18:34:00|Blocked by lubo\
+209.22013-07-24-18:34:00|Blocked by vlado\
+201.1|2013-07-24-18:51:01|Blocked by joro\
+79.19.133.36|2013-07-24-20:00:00|Blocked by toni\
+
+The script has to output only the lines that have dates older then 14 days. Sort the output by date. 

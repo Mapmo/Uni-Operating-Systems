@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#safe PATH
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
+function quit {
+	if [ $# != 1 ]; then
+		quit "Wrong amount of parameters in $0"
+	fi
+	echo $1
+	exit 1
+}
+
+#validation that there was exactly one input
+if [ $# != 1 ]; then
+        quit "Wrong output"
+fi
+
+#preserving the name of the parameter
+declare -r name="${1}"
+
+if [ ! -e ${name} ]; then    
+        quit "Invalid input"
+fi
+
+#Adds an empty log that represents the date two weeks ago and sorts all dates. After that, it removes everything under the empty log and that removes the empty log itself via head (because it is at the bottom)
+
+date -d "-14 days" +"|%Y-%m-%d-%H:%M:%S|" | cat - "${name}" | sort -t '|' -k 2,2 | grep "^|[^|]*|$" -B $(wc -l "${name}" | cut -d ' ' -f 1) | head -n -1
