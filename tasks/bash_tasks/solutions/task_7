@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function quit {
+	if [ $# != 1 ]; then 
+		quit "Wrong amount of paramters in $0"
+	fi
+	
+	echo $1
+	exit 1
+}
+
+if [ $# != 1 ]; then
+	quit "Wrong amount of parameters in $0"
+fi
+
+filename=$1
+awk 'BEGIN {rows=0} {sum+=$1; rows++} END {printf "%.3f\n", sum/rows}' $filename

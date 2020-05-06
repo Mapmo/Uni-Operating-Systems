@@ -61,3 +61,14 @@ Hint: use ldd to find the dependencies of a file and remember that these depende
 79.19.133.36|2013-07-24-20:00:00|Blocked by toni\
 
 The script has to output only the lines that have dates older then 14 days. Sort the output by date. 
+
+7. Write a script that takes a the name of a file, that consists of numbers on separate lines, as a single paramter. The script should return the average of the numbers with 3 digits precision after the decimal point.
+
+Example:
+
+1\
+2\
+9\
+8\
+
+=> 5.000
