@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while read pid; do
+	lsof -p $pid | tail -n +2 | awk '{print $1,"||",$NF}'
+done < <(ls /proc | egrep "^[[:digit:]]+$")
