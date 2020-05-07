@@ -1,0 +1,8 @@
+#!/bin/bash
+
+case $(cat | sort -u | wc -l) in 
+1) echo EQUILATERAL;;
+2) echo ISOSCELES;;
+3) echo SCALENE;;
+*) echo "Why so dude?"
+esac

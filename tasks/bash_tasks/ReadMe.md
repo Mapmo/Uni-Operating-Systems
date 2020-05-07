@@ -85,3 +85,13 @@ Examples:
 -105+50*3/20 + (19^2)/7
 
 => -45.929
+
+9. Given three integers representing the three sides of a triangle, identify whether the triangle is Scalene, Isosceles, or Equilateral.
+
+Example:
+
+2\
+3\
+4
+
+=> SCALENE
