@@ -72,3 +72,16 @@ Example:
 8
 
 => 5.000
+
+8. We provide you with expressions containing +,-,*,^, / and parenthesis. None of the numbers in the expression involved will exceed 999.Your task is to evaluate the expression and display the correct output rounding up to 3 decimal places. 
+
+Examples:
+5+50*3/20 + (19*2)/7
+
+=> 17.929
+
+-----------
+
+-105+50*3/20 + (19^2)/7
+
+=> -45.929
