@@ -1,0 +1,4 @@
+#!/bin/bash
+
+egrep -o "<[^ />]+" | sort -u | tr -d '<' | tr $'\n' ';' | head -c -1
+
