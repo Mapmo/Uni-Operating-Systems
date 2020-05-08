@@ -95,3 +95,27 @@ Example:
 4
 
 => SCALENE
+
+10. Given multiple lines stream with the following format: 
+
+NAME SCORE1 SCORE2 SCORE3
+
+transform the line to the following format:
+
+NAME SCORE1 SCORE2 SCORE3 : MARK
+
+where mark is "FAIL" if the average score is < 50, B if the average score is < 80 and A otherwise.
+
+Sample input:
+
+A 25 27 50\
+B 35 37 75\
+C 75 78 80\
+D 99 88 76
+
+Sample output:
+
+A 25 27 50 : FAIL\
+B 35 37 75 : FAIL\
+C 75 78 80 : B\
+D 99 88 76 : A

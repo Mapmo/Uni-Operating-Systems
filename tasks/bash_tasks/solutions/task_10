@@ -1,0 +1,3 @@
+#!/bin/bash
+
+awk '{a=(($4 + $2 +$3) / 3); if (a < 50) b="FAIL"; else if (a < 80) b="B"; else b="A";print $0,":",b}'
