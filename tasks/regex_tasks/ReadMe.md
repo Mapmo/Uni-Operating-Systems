@@ -23,3 +23,20 @@ abc012333ABCDEEEE\
 Sample Output:\
 VALID\
 INVALID
+
+3. Strip the links and the text name from the html pages. A html link is of the form:
+
+<a href="http://www.example.com">Text</a>\
+<a href="http://www.example.com"><h1><b>Text</b></h1></a>
+
+Sample Input:
+<a href="http://www.example.com"><h1><b>Text</b></h1></a>
+<a href="http://www.example.com"><area><b>Text</b><area></a>
+<a href="http://www.example.com"><i hreflang="see"><b>Text</b></i></a>
+<a href="http://www.example.com"></a>
+
+Sample Output:
+http://www.example.com,Text
+http://www.example.com,Text
+http://www.example.com,Text
+http://www.example.com,

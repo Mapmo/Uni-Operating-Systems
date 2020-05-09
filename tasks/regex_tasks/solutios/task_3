@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sed 's/href=/\n=/g' | grep "^=.*</a>" | sed 's|</[^a][^>]*>||g' | sed 's|^=\"\([^\"]*\)\".*>\([^<]*\)</.*|\1,\2|'
+
+#Explanation:
+#sed 's/href=/\n=/g' will make all href= new lines that start with =, = is needed to deal with hreflang attributes
+#grep "^=.*</a>" will get only parts of <a> attributes
+#sed 's|</[^a][^>]*>||g' will remove all tags like </b>, thus making only </a> ending tag in the sequence
+#sed 's|^=\"\([^\"]*\)\".*>\([^<]*\)</.*|\1,\2|' has two purposes
+	#=\"\([^\"]*\)\" extracts the link
+	#>\([^<]*\)</   extracts the value of <a> and since only </a> remains, it means the end of the text	
