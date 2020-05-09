@@ -1,0 +1,9 @@
+#!/bin/bash
+
+while read i; do
+	if [[ $i =~ ^[a-z]{0,3}[0-9]{2,8}[A-Z]{3,}$ ]]; then 
+		echo VALID
+	else 
+		echo INVALID 
+	fi 
+done
