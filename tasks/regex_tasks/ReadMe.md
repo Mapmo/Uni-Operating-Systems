@@ -61,3 +61,21 @@ When tested, however:
 	>shame@example.org hahaha
 
 Find out the reason why this is happening
+
+6. We define a word character to be any of the following:\
+	An English alphabetic letter (i.e., a-z and A-Z).\
+	A decimal digit (i.e., 0-9).\
+	An underscore
+
+We define a subword to be a word strictly inside another word (e.g. "is" in "exISisting, permISsive, etc.) but not in the end of a word (e.g. INteresting, skIN)
+
+Given N sentences consisting of one or more words separated by non-word characters, process Q queries where each query consists of a single string, S. To process each query, count the number of occurrences of S as a sub-word in all N sentences, then print the number of occurrences on a new line. 
+
+Sample Input
+1
+existing pessimist optimist this is
+1
+is
+
+Sample Output
+3

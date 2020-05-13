@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+#this task is just not to be completed with bash :(
+import re
+
+text= ""
+
+text_rows = input()
+for i in range(int(text_rows)):
+    tmp = input()
+    text+=" " + tmp #without the extra space it may lead to wrong results
+
+strings_count = input()
+for i in range(int(strings_count)):
+    tmp = input()
+    print(len(re.findall("\w"+tmp+"\w", text)))
+
