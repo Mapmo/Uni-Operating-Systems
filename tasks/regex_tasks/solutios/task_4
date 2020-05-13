@@ -1,0 +1,3 @@
+#!/bin/bash
+
+egrep -o "[[:alnum:]][^[:blank:]]*@[^[:blank:]]+\.[^[:blank:]]*[[:alnum:]]" | grep -v [^[:print:]] | sort | tr '$\n' ';' | head -c -1

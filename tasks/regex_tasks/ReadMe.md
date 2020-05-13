@@ -40,3 +40,12 @@ http://www.example.com,Text
 http://www.example.com,Text
 http://www.example.com,Text
 http://www.example.com,
+
+4. Write a regex to extract all emails in a text, then sort them and present them on a single line separated by ';'. A valid email begins and ends with a letter or a digit, has to contain '@' and at least one '.' after it and cannot contain non-ASCII characters or white spsaces.
+
+Sample Input:
+Product Hacker product@hackerrank.com
+Mail us at hackers@hackerrank.com™ to chat more. Or you can write to us at interviewstreet@hackerrank.com!
+
+Sample Output:
+hackers@hackerrank.com;interviewstreet@hackerrank.com;product@hackerrank.com
