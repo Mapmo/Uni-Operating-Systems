@@ -49,3 +49,15 @@ Mail us at hackers@hackerrank.com™ to chat more. Or you can write to us at int
 
 Sample Output:
 hackers@hackerrank.com;interviewstreet@hackerrank.com;product@hackerrank.com
+
+5. The following regex is supposed to match valid email addresses
+
+	egrep -o [^[:blank:]]+@[^[:blank:]]+\.[^[:blank:]]+[[:alnum:]]
+
+When tested, however:
+
+	echo "shame@example.org hahaha" | egrep -o [^[:blank:]]+@[^[:blank:]]+\.[^[:blank:]]+[[:alnum:]]
+
+	>shame@example.org hahaha
+
+Find out the reason why this is happening

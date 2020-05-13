@@ -1,0 +1,29 @@
+The reason for the issue is the lack of quotes.
+
+The command echo "shame@example.org hahaha" | egrep -o \. results in:
+s
+h
+a
+m
+e
+@
+e
+x
+a
+m
+p
+l
+e
+.
+o
+r
+g
+ 
+h
+a
+h
+a
+h
+a
+
+This is because the dot cannot be escaped outside of quotes the \ character is not escaping characters
