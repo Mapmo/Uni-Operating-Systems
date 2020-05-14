@@ -79,3 +79,16 @@ is
 
 Sample Output
 3
+
+7. Write a regex which will match the following string S
+
+S consists of 8 digits.\
+may have "-" separator such that string gets divided in parts, with each part having exactly two digits
+
+Valid S\
+12345678\
+12-34-56-87
+
+Invalid S\
+1-234-56-78\
+12-45-7810
