@@ -82,13 +82,27 @@ Sample Output
 
 7. Write a regex which will match the following string S
 
-S consists of 8 digits.\
-may have "-" separator such that string gets divided in parts, with each part having exactly two digits
+	S consists of 8 digits.\
+	may have "-" separator such that string gets divided in parts, with each part having exactly two digits
 
-Valid S\
-12345678\
-12-34-56-87
+	Valid S\
+	12345678\
+	12-34-56-87
 
-Invalid S\
-1-234-56-78\
-12-45-7810
+	Invalid S\
+	1-234-56-78\
+	12-45-7810
+
+8. Write a regex which matches the string S
+
+	S consists of tic or tac.\
+	tic should not be immediate neighbour of itself.\
+	The first tic must occur only when tac has appeared at least twice before.
+
+	Valid\
+	tactactic\
+	tactactictactic
+
+	Invalid\
+	tactactictactictictac\
+	tactictac
