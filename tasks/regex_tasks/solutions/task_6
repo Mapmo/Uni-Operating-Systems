@@ -12,5 +12,5 @@ for i in range(int(text_rows)):
 strings_count = input()
 for i in range(int(strings_count)):
     tmp = input()
-    print(len(re.findall("\w"+tmp+"\w", text)))
+    print(len(re.findall("\w"+tmp+"\w", text))) #check =? to solve situations like 'oo' in goooo resulting in one
 
