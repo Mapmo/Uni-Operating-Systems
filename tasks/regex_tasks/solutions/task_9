@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#the issue is that '-' in egrep is used for ranges, this way it is trying to match everything between '.' and '_' in the ASCII table.
+#'.' has id 46 and '_' has id 95 whereas '/' for instance has id 47 and therefore it gets matched in the regex.
+#The correct regex is:
+
+egrep -o "https?://[[:alnum:]][[:alnum:]\.\-_]*\.[[:alnum:]\.\-_]*[[:alnum:]]"

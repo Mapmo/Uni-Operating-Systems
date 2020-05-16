@@ -106,3 +106,17 @@ Sample Output
 	Invalid\
 	tactactictactictictac\
 	tactictac
+
+9. Look at the following regex:
+
+egrep -o "https?://[[:alnum:]][[:alnum:]\.-_]*\.[[:alnum:]\.-_]*[[:alnum:]]"
+
+It is supposed to extract the protocol and the domain name of all URLs that are in the text. However, with the following input this happens:
+
+Input:\
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+Output:\
+http://www.w3.org/TR/xhtml1/DTD/xhtml1
+
+Find what the reason is and fix the regex
