@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#the issue is that awk needs some sort of input, otherwise it is reading STDIN and thus awk steals the whole incoming stream for itself from the while loop thus keeping the left and right variables the same
+
+while read left right; do
+        echo "$left $right" | awk '{print $1 - $2}'        
+done

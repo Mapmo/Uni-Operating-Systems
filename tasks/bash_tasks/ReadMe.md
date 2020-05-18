@@ -119,3 +119,13 @@ A 25 27 50 : FAIL\
 B 35 37 75 : FAIL\
 C 75 78 80 : B\
 D 99 88 76 : A
+
+11. The following bash script is supposed to take 2 numbers on STDIN and calculate their difference
+
+#!/bin/bash
+
+while read left right; do
+        awk -v x=$left -v y=$right '{print x - y}'        
+done
+
+However, after calculating the first pair, it returns always the same answer. Fiugre out the issue and fix the script.
