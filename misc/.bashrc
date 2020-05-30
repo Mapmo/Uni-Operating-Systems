@@ -9,10 +9,13 @@ alias лс="ls --color=auto"
 alias ман=man
 alias судо=sudo
 alias пвд=pwd
+alias цат=cat
 alias цд=cd
 alias цлеар=clear
 alias я=q
 alias нео="neofetch"
+alias упс="sudo pacman -Syu"
+alias упсъ="sudo pacman -Syyu"
 
 #aliases for my keyboard lighting
 alias kon="xset led on"
@@ -28,6 +31,7 @@ alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
 alias ups="sudo pacman -Syu"
 alias upsy="sudo pacman -Syyu"
+alias free="free -h"
 
 function pwd 
 {
