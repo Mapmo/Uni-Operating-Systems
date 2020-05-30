@@ -33,8 +33,7 @@ alias ups="sudo pacman -Syu"
 alias upsy="sudo pacman -Syyu"
 alias free="free -h"
 
-function pwd 
-{
+function pwd {
 	echo
 	echo "Welcome to $(command pwd):"
 	echo
@@ -42,12 +41,10 @@ function pwd
 	echo
 }
 
-function cd
-{
+function cd {
 	echo
 
-	if [ -z "$*" ]
-	then
+	if [ -z "$*" ]; then
 		command	cd ~
 	else
 		command cd "$*"
@@ -56,8 +53,7 @@ function cd
 	pwd
 }
 
-function q
-{
+function q {
 	pkill firefox  #usually only my web browser is active when I try to poweroff
 	#pkill chrome
 
@@ -66,8 +62,7 @@ function q
 	sudo poweroff
 }
 
-function locate
-{
+function locate {
     /usr/bin/locate $1 | grep -v timeshift
 }
 
@@ -77,7 +72,6 @@ export PS1="\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w>$ \[\e[m\]"
 #The following code adds a cool output when starting a new session. It causes troubles to X server on boot so a check is needed to avoid the warning
 
 PNAME=$(ps --pid=$PPID --no-header | awk '{print $(NF)}')
-if [ ${PNAME} != 'gdm-x-session' ] #for GNOME DE
-then
+if [ ${PNAME} != 'gdm-x-session' ]; then #for GNOME DE
 	cmatrix -C cyan -s
 fi
