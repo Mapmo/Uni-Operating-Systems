@@ -33,7 +33,7 @@ alias ups="sudo pacman -Syu"
 alias upsy="sudo pacman -Syyu"
 alias free="free -h"
 
-function pwd {
+pwd () {
 	echo
 	echo "Welcome to $(command pwd):"
 	echo
@@ -41,7 +41,7 @@ function pwd {
 	echo
 }
 
-function cd {
+cd () {
 	echo
 
 	if [ -z "$*" ]; then
@@ -53,7 +53,7 @@ function cd {
 	pwd
 }
 
-function q {
+q () {
 	pkill firefox  #usually only my web browser is active when I try to poweroff
 	#pkill chrome
 
@@ -62,7 +62,7 @@ function q {
 	sudo poweroff
 }
 
-function locate {
+locate () {
     /usr/bin/locate $1 | grep -v timeshift
 }
 
