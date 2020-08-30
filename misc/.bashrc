@@ -1,6 +1,8 @@
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 
+~/.ssh-agent-add
+
 #cyrilic aliases
 alias ецхо=echo
 alias жим=vim
@@ -14,24 +16,21 @@ alias цд=cd
 alias цлеар=clear
 alias я=q
 alias нео="neofetch"
-alias упс="sudo pacman -Syu"
+#alias упс="sudo pacman -Syu"
+alias упс="update_arch.sh"
 alias упсъ="sudo pacman -Syyu"
 
-#aliases for my keyboard lighting
-alias kon="xset led on"
-alias кон=kon
-alias kof="xset led off"
-alias коф=kof
-
 #aliases for shortened commands
+alias free="free -h"
+alias hist="history | grep "
 alias ll="ls -l --color=auto"
 alias ls="ls --color=auto"
 alias neo="neofetch"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
-alias ups="sudo pacman -Syu"
+#alias ups="sudo pacman -Syu"
+alias ups="update_arch.sh"
 alias upsy="sudo pacman -Syyu"
-alias free="free -h"
 
 pwd () {
 	echo
@@ -79,5 +78,7 @@ export PS1="\
 
 PNAME=$(ps --pid=$PPID --no-header | awk '{print $(NF)}')
 if [ ${PNAME} != 'gdm-x-session' ]; then #for GNOME DE
-	cmatrix -C cyan -s
+#	cmatrix -C cyan -s
+    neo 
 fi
+SSH_AUTH_SOCK=/tmp/ssh-IbIoh5ApUQ6r/agent.8398; export SSH_AUTH_SOCK; SSH_AGENT_PID=8400; export SSH_AGENT_PID;
