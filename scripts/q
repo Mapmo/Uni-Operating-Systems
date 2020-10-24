@@ -1,7 +1,0 @@
-#!/bin/bash
-
-pgrep chrome | xargs kill -s SIGTERM
-
-sleep 0.2
-
-poweroff

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-#a program that makes my scroll lock button working on linux 
-
-xmodmap -quiet -e "add mod3 = Scroll_Lock" > /dev/null
