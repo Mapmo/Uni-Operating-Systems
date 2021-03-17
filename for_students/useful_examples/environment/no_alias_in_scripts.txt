@@ -1,0 +1,17 @@
+from man alias:
+Aliases are not expanded when the shell is not interactive, unless the expand_aliases shell option is set using shopt . 
+
+Note: expand_alias is set to off when starting a non-interactive subshell
+
+mapmo@mapmo:/tmp>$ bash a
+docker is aliased to `podman'
+mapmo@mapmo:/tmp>$ cat a
+#!/usr/bin/bash
+
+. <(grep 'alias' ~/.bashrc)
+
+#alias | grep docker
+# shopt | grep alias
+shopt -s expand_aliases
+type docker
+
