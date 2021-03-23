@@ -1,7 +1,6 @@
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
-
-~/.ssh-agent-add
+export PATH="$PATH:~/.local/bin"
 
 #cyrilic aliases
 alias ецхо=echo
@@ -16,29 +15,20 @@ alias цд=cd
 alias цлеар=clear
 alias я=q
 alias нео="neofetch"
-#alias упс="sudo pacman -Syu"
-alias упс="update_arch.sh"
-alias упсъ="sudo pacman -Syyu"
 
 #aliases for shortened commands
+alias add=". ~/.ssh-agent-add"
 alias free="free -h"
 alias hist="history | grep "
+alias jst="python -m json.tool < " # cat a file in pretty-json format
 alias ll="ls -l --color=auto"
 alias ls="ls --color=auto"
 alias neo="neofetch"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
-#alias ups="sudo pacman -Syu"
-alias ups="update_arch.sh"
-alias upsy="sudo pacman -Syyu"
-
-pwd () {
-	echo
-	echo "Welcome to $(command pwd):"
-	echo
-	ls 
-	echo
-}
+alias ups="sudo dnf update"
+alias nvd="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia" #runs a program with the nvdia card
+alias clip="xclip -sel clip"
 
 cd () {
 	echo
@@ -52,22 +42,39 @@ cd () {
 	pwd
 }
 
-q () {
-	pkill firefox  #usually only my web browser is active when I try to poweroff
-	#pkill chrome
-
-	sleep 0.2
-
-	sudo poweroff
+#Function that is used in the $PS1 variable to show me if I am on a git branch
+get_branch () {
+    git branch 2>/dev/null | grep '^*' | tr '*' ':' | tr -d ' '
 }
 
 locate () {
     /usr/bin/locate $1 | grep -v timeshift
 }
 
-#Function that is used in the $PS1 variable to show me if I am on a git branch
-get_branch () {
-    git branch 2>/dev/null | grep '^*' | tr '*' ':' | tr -d ' '
+pwd () {
+	echo
+	echo "Welcome to $(command pwd):"
+	echo
+	ls
+	echo
+}
+
+show () {
+	if [ $# -ne 1 ]; then
+		echo "Pass an argument please"
+		return 1
+	fi
+
+	less /proc/$1/status
+}
+
+qw () {
+	pkill firefox  #usually only my web browser is active when I try to poweroff
+	#pkill chrome
+
+	sleep 0.2
+
+	sudo poweroff
 }
 
 export PS1="\
@@ -78,7 +85,5 @@ export PS1="\
 
 PNAME=$(ps --pid=$PPID --no-header | awk '{print $(NF)}')
 if [ ${PNAME} != 'gdm-x-session' ]; then #for GNOME DE
-#	cmatrix -C cyan -s
     neo 
 fi
-SSH_AUTH_SOCK=/tmp/ssh-IbIoh5ApUQ6r/agent.8398; export SSH_AUTH_SOCK; SSH_AGENT_PID=8400; export SSH_AGENT_PID;
