@@ -180,4 +180,5 @@ bindsym $mod+l exec "sh /home/mapmo/Git/Uni-Operating-systems/scripts/lock.sh"
 
 # screenshot
 bindsym $mod+s exec "xfce4-screenshooter -rs /dev/stdout | xclip -selection clipboard -t image/png"
+bindsym Print exec "xfce4-screenshooter -rs /dev/stdout | xclip -selection clipboard -t image/png"
 
