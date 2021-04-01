@@ -17,7 +17,7 @@ alias я=q
 alias нео="neofetch"
 
 #aliases for shortened commands
-alias add=". ~/.ssh-agent-add"
+alias add="ssh-add"
 alias free="free -h"
 alias ga="git add"
 alias gcam="git commit -am"
@@ -28,14 +28,22 @@ alias gs="git status"
 alias hist="history | grep"
 alias i3c="vim ~/.config/i3/config"
 alias jst="python -m json.tool < " # cat a file in pretty-json format
-alias ll="ls -l --color=auto"
+alias ll="ls -l"
 alias ls="ls --color=auto"
 alias neo="neofetch"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
-alias ups="sudo dnf update"
+alias ups="sudo apt update && sudo apt upgrade"
 alias nvd="__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia" #runs a program with the nvdia card
 alias clip="xclip -sel clip"
+
+pwd () {
+	echo
+	echo "Welcome to $(command pwd):"
+	echo
+	ls
+	echo
+}
 
 cd () {
 	echo
@@ -49,21 +57,8 @@ cd () {
 	pwd
 }
 
-#Function that is used in the $PS1 variable to show me if I am on a git branch
-get_branch () {
-    git branch 2>/dev/null | grep '^*' | tr '*' ':' | tr -d ' '
-}
-
 locate () {
-    /usr/bin/locate $1 | grep -v timeshift
-}
-
-pwd () {
-	echo
-	echo "Welcome to $(command pwd):"
-	echo
-	ls
-	echo
+    /usr/bin/locate "$1" | grep -v timeshift
 }
 
 show () {
@@ -77,11 +72,13 @@ show () {
 
 qw () {
 	pkill firefox  #usually only my web browser is active when I try to poweroff
-	#pkill chrome
-
 	sleep 0.2
-
 	sudo poweroff
+}
+
+#Function that is used in the $PS1 variable to show me if I am on a git branch
+get_branch () {
+    git branch 2>/dev/null | grep '^*' | tr '*' ':' | tr -d ' '
 }
 
 export PS1="\
