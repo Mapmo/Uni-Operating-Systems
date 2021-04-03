@@ -9,11 +9,11 @@ def amend_status_line(status_line):
     # Return an amended status line. The status line is represented as a list of dicts.
 
     # Add layout to the status bar
-    lang_code = os.popen("xset -q|grep LED| awk '{ print $10 }'").read()[0:8]
+    lang_code = os.popen("xset -q|grep LED| awk '{ print $10 }'").read()[0:7]
     lang = ''
-    if lang_code == '00000000':
+    if lang_code == '0000000':
         lang = ' EN '
-    elif lang_code == '00001004':
+    elif lang_code == '0000100':
         lang = ' BG '
 
     layout = {
