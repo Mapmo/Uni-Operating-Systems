@@ -1,6 +1,7 @@
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PATH="$PATH:~/.local/bin"
+export HISTFILESIZE=20000
 
 #cyrilic aliases
 alias ецхо=echo
