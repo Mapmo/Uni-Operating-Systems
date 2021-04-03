@@ -2,10 +2,13 @@
 import os
 import json
 import sys
+import re
 
 
 def amend_status_line(status_line):
-    """ Return an amended status line. The status line is represented as a list of dicts."""
+    # Return an amended status line. The status line is represented as a list of dicts.
+
+    # Add layout to the status bar
     lang_code = os.popen("xset -q|grep LED| awk '{ print $10 }'").read()[0:8]
     lang = ''
     if lang_code == '00000000':
@@ -18,7 +21,16 @@ def amend_status_line(status_line):
         'full_text': lang
     }
     status_line.insert(5, layout)
+
     return status_line
+
+
+def strip_full_battery(status_line):
+    # Removes the () text when the battery is full
+    for field in status_line:
+        if field["name"] == 'battery':
+            field["full_text"] = re.sub(r'\(\)$', '', field["full_text"])
+            return status_line
 
 
 def main():
@@ -32,6 +44,7 @@ def main():
                     print(line.strip())
                     continue
             parsed = json.loads(line[1:])
+            strip_full_battery(parsed)
             print(",%s" % (json.dumps(amend_status_line(parsed)),))
 
 
