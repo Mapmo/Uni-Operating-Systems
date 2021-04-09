@@ -22,6 +22,23 @@ def amend_status_line(status_line):
     }
     status_line.insert(5, layout)
 
+    # Add weather info
+    home = os.path.expanduser("~")
+    try:
+        with open(home + '/.config/i3/.weather_data.json') as w_fd:
+            w_json = json.load(w_fd)
+            weather = {
+                'instance': 'weather',
+                'full_text': w_json['icon'] + ' ' + w_json['temp_c'] + '℃ '
+            }
+    except IOError:
+        weather = {
+            'instance': 'weather',
+            'full_text': 'no_data',
+            'color': '#FF0000'
+        }
+
+    status_line.insert(7, weather)
     return status_line
 
 
