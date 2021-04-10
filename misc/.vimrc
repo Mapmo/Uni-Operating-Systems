@@ -19,7 +19,7 @@ let g:syntastic_perl_lib_path = [ "/usr/share/perl5", './lib', ]
 let g:syntastic_perl_checkers = ['perl']
 " python
 let g:syntastic_python_checkers=['flake8', 'python']
-let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225,W605'
+let g:syntastic_python_flake8_post_args='--extend-ignore=E501,E128,E225,W605'
 " yaml
 let g:syntastic_yaml_checkers = ['yamllint']
 " Use /.vim/syntax/groovy.vim for groovy syntax check
