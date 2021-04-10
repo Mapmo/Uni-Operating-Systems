@@ -40,7 +40,7 @@ elif code in snowy_codes:
 else:
     icon = 404
 
-info = '{"temp_c":"' + str(data['current']['temp_c']) + '","icon":"' + icon + '"}'
+info = '{"temp_c":"' + str(data['current']['temp_c']) + '","icon":"' + icon + '","feelslike_c":"' + str(data['current']['feelslike_c']) + '"}'
 
 info_json = json.loads(info)
 with open(cwd + '.weather_data.json', 'w') as output:

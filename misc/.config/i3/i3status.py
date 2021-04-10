@@ -29,7 +29,8 @@ def amend_status_line(status_line):
             w_json = json.load(w_fd)
             weather = {
                 'instance': 'weather',
-                'full_text': w_json['icon'] + ' ' + w_json['temp_c'] + '℃ '
+                'full_text': (w_json['icon'] + w_json['temp_c']
+                    + '℃ (' + w_json['feelslike_c'] + '℃ )')
             }
     except IOError:
         weather = {
