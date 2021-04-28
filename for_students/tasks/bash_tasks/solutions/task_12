@@ -1,0 +1,24 @@
+#!/bin/env bash
+
+dir='/tmp/a'
+if [ -e $dir ]; then
+   rm -rf $dir
+fi
+mkdir $dir
+cd $dir
+
+while read pid ppid; do
+	echo "$pid" >> "$ppid"
+done < <(ps axo pid,ppid --no-header)
+
+for ppid in $(ls); do
+	pkids=$(wc -l "$ppid" | awk '{print $1}')
+	while read pid; do
+		if [ -f $pid ]; then
+			kids=$(wc -l "$pid" | awk '{print $1}')
+			if [ $pkids -lt $kids ]; then
+				echo "$pid"
+			fi
+		fi
+	done < "$ppid"
+done

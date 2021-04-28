@@ -129,3 +129,5 @@ while read left right; do
 done
 
 However, after calculating the first pair, it returns always the same answer. Fiugre out the issue and fix the script.
+
+12. Print all process who have more children that their parents
