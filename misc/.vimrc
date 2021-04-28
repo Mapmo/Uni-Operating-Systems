@@ -13,6 +13,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 
+" bash
+let g:syntastic_enable_bash_checker=['shellcheck']
 " perl
 let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_lib_path = [ "/usr/share/perl5", './lib', ]

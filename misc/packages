@@ -11,6 +11,7 @@ i3-wm
 i3lock
 i3status
 neofetch
+shellcheck
 suckless-tools
 vim
 vim-syntastic
