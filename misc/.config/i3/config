@@ -161,7 +161,7 @@ bindsym Print exec "xfce4-screenshooter"
 bindsym $mod+Print exec "xfce4-screenshooter"
 
 # Launchers
-bindsym $mod+Shift+d exec discord
+bindsym $mod+Shift+d exec flatpak run com.discordapp.Discord
 bindsym $mod+f exec firefox
 bindsym $mod+Shift+p exec firefox --private-window
 bindsym $mod+z exec zim
