@@ -149,12 +149,11 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10% && pactl set-sink
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
 
 # brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 10%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
 
 # lock screen
-#bindsym $mod+l exec "sh /home/mapmo/Git/Uni-Operating-systems/scripts/lock.sh"
-bindsym $mod+l exec "sh ~/Git/Uni-Operating-systems/scripts/lock.sh"
+bindsym $mod+l exec "sh ~/.config/i3/lock.sh"
 
 # screenshot
 bindsym $mod+s exec "xfce4-screenshooter -rs /dev/stdout | xclip -selection clipboard -t image/png"
