@@ -1,7 +1,10 @@
+brightnessctl
 fonts-noto-color-emoji 
+imagemagick
 i3
 i3-wm
 i3lock
 i3status
+scrot
 xinit
 xorg
