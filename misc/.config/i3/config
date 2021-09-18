@@ -11,7 +11,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -158,10 +158,12 @@ bindsym $mod+l exec "sh ~/Git/Uni-Operating-systems/scripts/lock.sh"
 
 # screenshot
 bindsym $mod+s exec "xfce4-screenshooter -rs /dev/stdout | xclip -selection clipboard -t image/png"
-bindsym Print exec "xfce4-screenshooter -rs /dev/stdout | xclip -selection clipboard -t image/png"
+bindsym Print exec "xfce4-screenshooter"
+bindsym $mod+Print exec "xfce4-screenshooter"
 
 # Launchers
 bindsym $mod+Shift+d exec discord
 bindsym $mod+f exec firefox
+bindsym $mod+Shift+p exec firefox --private-window
 bindsym $mod+z exec zim
 bindsym $mod+t exec thunar
