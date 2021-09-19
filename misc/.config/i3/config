@@ -138,10 +138,10 @@ bar {
 }
 
 # Set desktop
-exec "sh ~/.fehbg"
+# exec "sh ~/.fehbg"
 
 # layout
-exec "setxkbmap -layout us,bg -variant basic,phonetic -option 'grp:alt_shift_toggle'"
+exec_always --no-startup-id "setxkbmap -layout us,bg -variant basic,phonetic -option 'grp:alt_shift_toggle'"
 
 # sound
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10% && pactl set-sink-mute 0 0
