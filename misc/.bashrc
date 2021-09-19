@@ -82,9 +82,8 @@ get_branch () {
     git branch 2>/dev/null | grep '^*' | tr '*' ':' | tr -d ' '
 }
 
-export PS1="\
-\$(if [[ \$? -eq 0 ]]; then printf \"\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w\[\e[0;33m\]\$(get_branch)\[\e[1;32m\]\"; else printf \"\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w\[\e[0;33m\]\$(get_branch)\[\e[0;31m\]\"; fi)>$ \[\e[m\]"
-
+trap '> /tmp/command' DEBUG
+export PS1='$(tmp=$?; if [[ -f /tmp/command && $tmp -eq 1 ]]; then color="0;31"; rm -f /tmp/command; else color="1;32"; fi; printf "\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w\[\e[0;33m\]$(get_branch)\[\e[${color}m\]")>$ \[\e[m\]'
 
 #The following code adds a cool output when starting a new session. It causes troubles to X server on boot so a check is needed to avoid the warning
 
