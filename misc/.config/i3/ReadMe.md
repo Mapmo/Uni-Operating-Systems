@@ -6,3 +6,5 @@ After that you will need this crontab, to refresh the data for the weather
 ```
 * * * * * /usr/bin/python3 /home/mapmo/.config/i3/get_weather.py
 ```
+
+For language switching, when using XFCE as a base. Go to Setting -> Input Method (keyboard icon) and select None instead of ibus.
