@@ -137,6 +137,9 @@ bar {
     status_command ~/.config/i3/i3status.py
 }
 
+# Set the pattern for opening new windows
+exec --no-startup-id "~/.config/i3/alternating_layouts.py -p $(tempfile)"
+
 # Set desktop
 # exec "sh ~/.fehbg"
 
