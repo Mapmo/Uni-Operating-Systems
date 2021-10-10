@@ -7,12 +7,14 @@ fi
 
 apt_packages=(
 	brightnessctl
+	figlet
 	fonts-noto-color-emoji
 	imagemagick
 	i3
 	i3-wm
 	i3lock
 	i3status
+	lolcat
 	lxappearance
 	scrot
 	vim
@@ -23,6 +25,7 @@ apt_packages=(
 )
 
 pip3_packages=(
+	grip
 	i3ipc
 	flake8
 	yamllint
