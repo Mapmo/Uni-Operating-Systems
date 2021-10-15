@@ -35,6 +35,7 @@ alias jst="python -m json.tool < " # cat a file in pretty-json format
 alias ll="ls -l"
 alias ls="ls --color=auto"
 alias neo="neofetch"
+alias tf="terraform"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
 alias ups="sudo apt update && sudo apt upgrade"
