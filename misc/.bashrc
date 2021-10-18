@@ -50,8 +50,6 @@ pwd () {
 }
 
 cd () {
-	echo
-
 	if [ -z "$*" ]; then
 		command	cd ~
 	else
