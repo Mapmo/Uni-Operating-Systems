@@ -7,6 +7,7 @@ fi
 
 apt_packages=(
 	brightnessctl
+	feh
 	figlet
 	fonts-noto-color-emoji
 	imagemagick

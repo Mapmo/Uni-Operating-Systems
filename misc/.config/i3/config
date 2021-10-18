@@ -141,7 +141,7 @@ bar {
 exec --no-startup-id "~/.config/i3/alternating_layouts.py -p $(tempfile)"
 
 # Set desktop
-# exec "sh ~/.fehbg"
+exec --no-startup-id "feh --bg-fill ~/Desktop/bg"
 
 # layout
 exec --no-startup-id "setxkbmap -layout us,bg -variant basic,phonetic -option 'grp:alt_shift_toggle'"
@@ -167,8 +167,9 @@ bindsym Print exec "xfce4-screenshooter"
 bindsym $mod+Print exec "xfce4-screenshooter"
 
 # Launchers
-bindsym $mod+Shift+d exec flatpak run com.discordapp.Discord
+bindsym $mod+c exec flatpak run com.visualstudio.code
 bindsym $mod+f exec firefox
-bindsym $mod+Shift+p exec firefox --private-window
 bindsym $mod+z exec zim
 bindsym $mod+t exec thunar
+bindsym $mod+Shift+d exec flatpak run com.discordapp.Discord
+bindsym $mod+Shift+p exec firefox --private-window
