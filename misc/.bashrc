@@ -79,7 +79,9 @@ qw () {
 }
 #Function that is used in the $PS1 variable to show me if I am on a git branch
 get_branch () {
-    git branch 2>/dev/null | grep '^*' | tr '*' ':' | tr -d ' '
+	gs -s &>/dev/null || return
+	echo -n ':'
+	git branch --show-current 2>/dev/null
 }
 
 export PS1='$(tmp=$?; if [ $tmp -eq 1 ]; then color="0;31"; else color="1;32"; fi; printf "\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w\[\e[0;33m\]$(get_branch)\[\e[${color}m\]")>$ \[\e[m\]'
