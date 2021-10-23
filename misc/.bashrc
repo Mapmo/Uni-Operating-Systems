@@ -35,7 +35,7 @@ alias jst="python -m json.tool < " # cat a file in pretty-json format
 alias lol="lolcat"
 alias ll="ls -l"
 alias ls="ls --color=auto"
-alias neo="neofetch"
+alias neo="neofetch | lol"
 alias tf="terraform"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
@@ -90,5 +90,5 @@ export PS1='$(tmp=$?; if [ $tmp -eq 1 ]; then color="0;31"; else color="1;32"; f
 #The following code adds a cool output when starting a new session. It causes troubles to X server on boot so a check is needed to avoid the warning
 PNAME=$(ps --pid=$PPID --no-header | awk '{print $(NF)}')
 if [ ${PNAME} != 'gdm-x-session' ]; then
-	(neo | lol) 2>/dev/null
+	neo 2>/dev/null
 fi
