@@ -13,6 +13,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 
+
 " bash
 let g:syntastic_enable_bash_checker=['shellcheck']
 " perl
@@ -32,19 +33,27 @@ au BufNewFile,BufRead *.groovy  setf groovy
 setlocal ts=4 sts=4 sw=4 noexpandtab
 
 autocmd Filetype bash setlocal ts=4 sts=4 sw=4 noexpandtab
-autocmd Filetype c setlocal ts=8 sts=8 sw=8 noexpandtab
+autocmd Filetype c setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd Filetype cpp setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype go setlocal ts=8 sts=8 sw=8 noexpandtab
-autocmd Filetype h setlocal ts=8 sts=8 sw=8 noexpandtab
-autocmd Filetype jade setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype go setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd Filetype h setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd Filetype js setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype sh setlocal ts=4 sts=4 sw=4 noexpandtab
-autocmd Filetype pl setlocal ts=4 sts=4 sw=4 noexpandtab 
-autocmd Filetype py setlocal ts=4 sts=4 sw=4 expandtab 
+autocmd Filetype pl setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd Filetype py setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype spec setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd Filetype tf setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype yml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Enable syntax highlighting by default
 syntax on
+
+" Highlight trailing whitespaces
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+" Add parentheses matching
+" :hi MatchParen cterm=underline ctermbg=none ctermfg=darkyellow
+:hi MatchParen cterm=bold ctermbg=magenta ctermfg=blue
