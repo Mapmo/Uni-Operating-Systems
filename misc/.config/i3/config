@@ -53,7 +53,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -167,9 +167,11 @@ bindsym Print exec "xfce4-screenshooter"
 bindsym $mod+Print exec "xfce4-screenshooter"
 
 # Launchers
+bindsym $mod+a exec i3-sensible-terminal
 bindsym $mod+c exec flatpak run com.visualstudio.code
 bindsym $mod+f exec firefox
 bindsym $mod+z exec zim
 bindsym $mod+t exec thunar
 bindsym $mod+Shift+d exec flatpak run com.discordapp.Discord
 bindsym $mod+Shift+p exec firefox --private-window
+bindsym $mod+Shift+z exec flatpak run us.zoom.Zoom
