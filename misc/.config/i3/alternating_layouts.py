@@ -38,9 +38,11 @@ def set_layout(i3, e):
             and parent.layout != 'stacked'):
 
         if win.rect.height > win.rect.width:
-            i3.command('split v')
+            if parent.orientation == 'horizontal':
+                i3.command('split v')
         else:
-            i3.command('split h')
+            if parent.orientation == 'vertical':
+                i3.command('split h')
 
 
 def print_help():
@@ -57,7 +59,6 @@ def main():
         changes and call set_layout when focus
         changes
     """
-    print("Working\n")
     opt_list, _ = getopt.getopt(sys.argv[1:], 'hp:')
     pid_file = None
     for opt in opt_list:
