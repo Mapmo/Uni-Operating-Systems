@@ -56,12 +56,8 @@ cd () {
 	else
 		command cd "$*"
 	fi
-	
-	pwd
-}
 
-locate () {
-    /usr/bin/locate "$1" | grep -v timeshift
+	pwd
 }
 
 show () {
