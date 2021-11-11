@@ -138,7 +138,7 @@ bar {
 }
 
 # Set the pattern for opening new windows
-exec --no-startup-id "~/.config/i3/alternating_layouts.py -p $(mktemp)"
+exec_always --no-startup-id "~/.config/i3/alternating_layouts.py -p $(mktemp)"
 
 # Set desktop
 exec --no-startup-id "feh --bg-fill ~/Desktop/bg"
