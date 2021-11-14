@@ -2,6 +2,7 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export PATH="$PATH:~/.local/bin"
 export HISTFILESIZE=20000
+export HISTSIZE=20000
 
 #cyrilic aliases
 alias ецхо=echo
@@ -31,7 +32,7 @@ alias gd="git diff"
 alias gs="git status"
 alias hist="history | grep"
 alias i3c="vim ~/.config/i3/config"
-alias jst="python -m json.tool < " # cat a file in pretty-json format
+alias jst="python3 -m json.tool < " # cat a file in pretty-json format
 alias lol="lolcat"
 alias ll="ls -l"
 alias ls="ls --color=auto"
@@ -72,7 +73,7 @@ show () {
 qw () {
 	pkill firefox  #usually only my web browser is active when I try to poweroff
 	sleep 0.2
-	sudo poweroff
+	poweroff
 }
 #Function that is used in the $PS1 variable to show me if I am on a git branch
 get_branch () {
