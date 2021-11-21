@@ -75,16 +75,24 @@ qw () {
 	sleep 0.2
 	poweroff
 }
-#Function that is used in the $PS1 variable to show me if I am on a git branch
+
+# === PS1 setup ====
+# Function that is used in the $PS1 variable to show me if I am on a git branch
 get_branch () {
 	gs -s &>/dev/null || return
 	echo -n ':'
 	git branch --show-current 2>/dev/null
 }
 
+# Variable that truncates directories for PS1 when cwd is too deep
+export PROMPT_DIRTRIM=1
+
 export PS1='$(tmp=$?; if [ $tmp -eq 1 ]; then color="0;31"; else color="1;32"; fi; printf "\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w\[\e[0;33m\]$(get_branch)\[\e[${color}m\]")>$ \[\e[m\]'
 
-#The following code adds a cool output when starting a new session. It causes troubles to X server on boot so a check is needed to avoid the warning
+# ==================
+
+# The following code adds a cool output when starting a new session.
+# It causes troubles to X server on boot so a check is needed to avoid the warning
 PNAME=$(ps --pid=$PPID --no-header | awk '{print $(NF)}')
 if [ ${PNAME} != 'gdm-x-session' ]; then
 	neo 2>/dev/null
