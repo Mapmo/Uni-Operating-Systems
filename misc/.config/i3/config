@@ -8,7 +8,7 @@ font pango:noto-color-emoji 8.75
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+q kill
@@ -96,7 +96,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -142,7 +142,11 @@ exec_always --no-startup-id "~/.config/i3/alternating_layouts.py -p $(mktemp)"
 
 # Set desktop
 exec --no-startup-id "feh --bg-fill ~/Desktop/bg"
-
+for_window [class="plasmashell"] floating enable
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+no_focus [class="plasmashell" window_type="notification"]
+no_focus [class="plasmashell" window_type="on_screen_display"]
+exec --no-startup-id "dunst"
 # layout
 exec --no-startup-id "setxkbmap -layout us,bg -variant basic,phonetic -option 'grp:alt_shift_toggle'"
 
@@ -167,12 +171,12 @@ bindsym Print exec "xfce4-screenshooter"
 bindsym $mod+Print exec "xfce4-screenshooter"
 
 # Launchers
-bindsym $mod+a exec i3-sensible-terminal
+bindsym $mod+a exec konsole
 bindsym $mod+c exec flatpak run com.visualstudio.code
 bindsym $mod+f exec firefox
 bindsym $mod+g workspace 10; exec gromit-mpx; workspace back_and_forth
 bindsym $mod+z exec zim
-bindsym $mod+t exec thunar
+bindsym $mod+t exec dolphin
 bindsym $mod+Shift+d exec flatpak run com.discordapp.Discord
 bindsym $mod+Shift+p exec firefox --private-window
 bindsym $mod+Shift+z exec flatpak run us.zoom.Zoom

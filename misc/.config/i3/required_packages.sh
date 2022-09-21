@@ -25,6 +25,27 @@ apt_packages=(
 	xorg
 )
 
+dnf_packages=(
+	brightnessctl
+	dmenu
+	feh
+	figlet
+	flatpak
+	google-noto-emoji-fonts
+	ImageMagick
+	i3
+	i3lock
+	i3status
+	lolcat
+	lxappearance
+	scrot
+	vim
+	vim-syntastic
+	xclip
+	xinit
+	xfce4-screenshooter
+)
+
 pip3_packages=(
 	grip
 	i3ipc
@@ -32,5 +53,16 @@ pip3_packages=(
 	yamllint
 )
 
-apt install "${apt_packages[@]}" -y
+flatpak_packages=(
+	 com.discordapp.Discord
+	 com.visualstudio.code
+	 us.zoom.Zoom
+ )
+
+type apt 2>/dev/null && apt install "${apt_packages[@]}" -y
+type dnf 2>/dev/null && dnf install "${dnf_packages[@]}" -y
+
 pip3 install "${pip3_packages[@]}"
+
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub "${flatpak_packages[@]}" -y
