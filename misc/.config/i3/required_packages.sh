@@ -23,6 +23,7 @@ apt_packages=(
 	xclip
 	xinit
 	xorg
+	xset
 )
 
 dnf_packages=(
@@ -43,6 +44,7 @@ dnf_packages=(
 	vim-syntastic
 	xclip
 	xinit
+	xset
 	xfce4-screenshooter
 )
 
