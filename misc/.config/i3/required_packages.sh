@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [ $(id -u) -ne 0 ]; then
-	echo "Root permission required"
+if [ $(id -u) -eq 0 ]; then
+	echo "Can't run as root"
 	exit 1
 fi
 
@@ -57,12 +57,11 @@ pip3_packages=(
 
 flatpak_packages=(
 	 com.discordapp.Discord
-	 com.visualstudio.code
 	 us.zoom.Zoom
  )
 
-type apt 2>/dev/null && apt install "${apt_packages[@]}" -y
-type dnf 2>/dev/null && dnf install "${dnf_packages[@]}" -y
+type apt 2>/dev/null && sudo apt install "${apt_packages[@]}" -y
+type dnf 2>/dev/null && sudo dnf install "${dnf_packages[@]}" -y
 
 pip3 install "${pip3_packages[@]}"
 
