@@ -40,6 +40,7 @@ dnf_packages=(
 	lolcat
 	lxappearance
 	neofetch
+	python-pip
 	scrot
 	vim
 	vim-syntastic
