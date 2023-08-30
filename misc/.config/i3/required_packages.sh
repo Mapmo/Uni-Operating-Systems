@@ -39,6 +39,7 @@ dnf_packages=(
 	i3status
 	lolcat
 	lxappearance
+	neofetch
 	scrot
 	vim
 	vim-syntastic
