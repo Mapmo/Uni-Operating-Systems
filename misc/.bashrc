@@ -40,7 +40,7 @@ alias neo="neofetch | lol"
 alias tf="terraform"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
-alias ups="sudo apt update && sudo apt upgrade"
+alias ups="sudo dnf upgrade -y"
 alias clip="xclip -sel clip"
 
 pwd () {
