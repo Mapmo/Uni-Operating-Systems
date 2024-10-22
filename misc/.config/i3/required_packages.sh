@@ -39,7 +39,6 @@ dnf_packages=(
 	i3status
 	lolcat
 	lxappearance
-	neofetch
 	python-pip
 	scrot
 	vim
@@ -67,5 +66,5 @@ type dnf 2>/dev/null && sudo dnf install "${dnf_packages[@]}" -y
 
 pip3 install "${pip3_packages[@]}"
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub "${flatpak_packages[@]}" -y
+# flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# flatpak install flathub "${flatpak_packages[@]}" -y
