@@ -16,7 +16,11 @@ def main() -> int:
             if args.reversed:
                 tests = {v: k for k, v in tests.items()}
             for key in tests.keys():
-                ans = input(key)
+                if input(key) == tests[key]:
+                    print("Richtig")
+                else:
+                    print("Falsch")
+                    print(f"Dei Antwort ist {tests[key]}")
     except FileNotFoundError:
         print("File not found")
         return 1
