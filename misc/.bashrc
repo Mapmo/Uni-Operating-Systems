@@ -17,28 +17,37 @@ alias цат=cat
 alias цд=cd
 alias цлеар=clear
 alias яв=qw
+alias к9с=k9s
 
 #aliases for shortened commands
 alias add="ssh-add"
 alias free="free -h"
 alias ga="git add"
 alias gb="git branch"
+alias gbd='git checkout master && git branch | grep -v "^\* master$" | xargs git branch -d'
 alias gc="git checkout"
 alias gcb="git checkout -b"
 alias gcam="git commit -am"
 alias gcm="git commit -m"
 alias gcma="git commit -am"
 alias gd="git diff"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gpl="git pull"
+alias gpo='git push --set-upstream origin $(git branch --show-current)'
 alias gs="git status"
+alias gt="git"
 alias hist="history | grep -v hist | grep"
 alias i3c="vim ~/.config/i3/config"
 alias jst="python3 -m json.tool < " # cat a file in pretty-json format
 alias k8s="kubectl"
+alias k="kubectl"
+alias kns="kubectl config set-context $(kubectl config current-context) --namespace"
 alias mk="minikube"
 alias mkup="minikube start --driver=docker"
-alias lol="lolcat"
 alias ll="ls -l"
 alias ls="ls --color=auto"
+alias lol="lolcat"
 alias neo="neofetch | lol"
 alias tf="terraform"
 alias reboot="sudo reboot"
@@ -87,13 +96,5 @@ get_branch () {
 	git branch --show-current 2>/dev/null
 }
 
-export PS1='$(tmp=$?; if [ $tmp -eq 1 ]; then color="0;31"; else color="1;32"; fi; printf "\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w\[\e[0;33m\]$(get_branch)\[\e[${color}m\]")>$ \[\e[m\]'
+export PS1='$(tmp=$?; if [ $tmp -gt 0 ]; then color="0;31"; else color="1;32"; fi; printf "\[\e[1;33m\]\u\[\e[1;35m\]@\h:\[\e[1;32m\]\w\[\e[0;33m\]$(get_branch)\[\e[${color}m\]")>$ \[\e[m\]'
 
-# ==================
-
-# The following code adds a cool output when starting a new session.
-# It causes troubles to X server on boot so a check is needed to avoid the warning
-PNAME=$(ps --pid=$PPID --no-header | awk '{print $(NF)}')
-if [ ${PNAME} != 'gdm-x-session' ]; then
-	neo 2>/dev/null
-fi
