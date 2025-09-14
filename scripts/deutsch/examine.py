@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import random
 import sys
 
 
@@ -15,12 +16,16 @@ def main() -> int:
             tests = json.load(fd)
             if args.reversed:
                 tests = {v: k for k, v in tests.items()}
-            for key in tests.keys():
-                if input(key) == tests[key]:
+            test_keys = list(tests.keys())
+            random.shuffle(test_keys)
+            print(test_keys)
+            for key in test_keys:
+                if input(key + "\n") == tests[key]:
                     print("Richtig")
+                    print("----")
                 else:
                     print("Falsch")
-                    print(f"Dei Antwort ist {tests[key]}")
+                    print(f"Die Antwort ist {tests[key]}")
     except FileNotFoundError:
         print("File not found")
         return 1
