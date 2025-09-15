@@ -13,15 +13,15 @@ def add_to_retry(key: str, val: str, args: argparse.Namespace):
     if args.reversed:
         val, key = key, val
     if not os.path.exists(retry_file_path):
-        with open(retry_file_path, "w") as fd:
+        with open(retry_file_path, "w", encoding="utf-8") as fd:
             json.dump({}, fd)
-    with open(retry_file_path) as fd:
+    with open(retry_file_path, encoding="utf-8") as fd:
         retry_json = json.load(fd)
         if key in retry_json:
             return
         retry_json[key] = val
-        with open(retry_file_path, "w") as fd:
-            json.dump(retry_json, fd, indent=4)
+        with open(retry_file_path, "w", encoding="utf-8") as fd:
+            json.dump(retry_json, fd, indent=4, ensure_ascii=False)
 
 
 def process_question(key: str, tests: dict, args: argparse.Namespace):
@@ -36,7 +36,7 @@ def process_question(key: str, tests: dict, args: argparse.Namespace):
 
 
 def run_tests(args: argparse.Namespace):
-    with open(args.filename) as fd:
+    with open(args.filename, encoding="utf-8") as fd:
         tests = json.load(fd)
         if args.reversed:
             tests = {v: k for k, v in tests.items()}
