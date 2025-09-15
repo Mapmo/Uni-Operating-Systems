@@ -43,11 +43,10 @@
   "das Zimmer": "room",
   "der Zug": "train",
   "die Zeit": "time (n)",
-  "der Vereinigten Staaten": "USA",
-  "die Schweiz": "Switzerland",
-  "die Türkei": "Turkey",
-  "die Niederlanden": "the Netherlands",
-  "die Vereinigten Arabischen Emiraten": "UAE",
   "der Kalender": "calendar",
-  "der Anruf": "call (n)"
+  "der Anruf": "call (n)",
+  "das Lied": "song",
+  "singen": "sing",
+  "das Bett": "bed",
+  "der Tisch": "table"
 }
